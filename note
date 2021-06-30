@@ -1,0 +1,6 @@
+1. Assignment:
+
+    lval: [StructRef,ID,ArrayRef]
+    rval: [StructRef, ID, ArrayRef, Constant, FuncCall, TernaryOp]
+
+2. FuncCall:
