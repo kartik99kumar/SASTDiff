@@ -13,4 +13,4 @@ def evaluateBind(state):
                     exp = re.compile(pattern)
                     if not exp.match(addr):
                         print(
-                            "warning: bind address {} is not acceptable".format(addr))
+                            "warning: \"bind\" address {} is not acceptable".format(addr))

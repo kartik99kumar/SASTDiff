@@ -22,10 +22,11 @@ functions, structures, globalvars = makeTables(root)
 
 # s.showLog()
 
+file1 = open("log.txt", "w")
+
 for func in functions:
-    # print("function definition: \"{}\"".format(func))
     fs = evaluateFuncDef(functions[func])
-    # fs.showLog()
+    fs.showLog(file1)
     # fs.show()
     shellEvaluate(fs)
     evaluateBind(fs)

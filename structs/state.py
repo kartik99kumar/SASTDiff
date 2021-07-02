@@ -58,9 +58,15 @@ class State:
     def addToLog(self, log):
         self.log.append(log)
 
-    def showLog(self):
-        for i, l in enumerate(self.log):
-            print("{}: {}".format(i+1, l))
+    def showLog(self, file=None):
+        if file is None:
+            for i, l in enumerate(self.log):
+                print("{}: {}".format(i+1, l))
+        else:
+            log = ""
+            for i, l in enumerate(self.log):
+                log += "{}: {}\n".format(i+1, l)
+            file.write(log)
 
     def showVariables(self):
         for var in self.variables:

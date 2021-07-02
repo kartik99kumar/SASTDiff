@@ -6,18 +6,25 @@ from process.funccall import evaluateFuncCall
 
 def evaluateAssignment(assignment, state):
 
+    if not isinstance(assignment, ast.Assignment):
+        return
+
     rval = assignment.rvalue
     value = None
 
-    if(isinstance(rval, ast.ID)):
+    if isinstance(rval, ast.ID):
         name = rval.name
         value = state.getVariableValue(name)
-    elif(isinstance(rval, ast.FuncCall)):
+
+    elif isinstance(rval, ast.FuncCall):
         value = None
+
     elif(isinstance(rval, ast.StructRef)):
-        name = rval.name.name
+        if isinstance(rval.name, ast.ID):
+            name = rval.name.name
         field = rval.field.name
         value = state.getVariableValue(name, field)
+
     elif(isinstance(rval, ast.Constant)):
         value = rval.value
 

@@ -1,0 +1,11 @@
+1: variable "a" declared
+2: variable "a" is initialised to value "1"
+3: variable "str" declared
+4: variable "str" is initialised to value ""hello""
+5: variable "x" of structure "a" declared
+6: variable "StructRef(name=ID(name='x'
+                  ),
+          type='.',
+          field=ID(name='y'
+                   )
+          )" field "w" assigned value "100"
