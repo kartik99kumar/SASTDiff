@@ -1,6 +1,6 @@
 void show(){
     int a=1;
-    char* str="hello";
-    struct a x;
-    x.y.z.w=100;
+    int b=a;
+    int c=b;
+    int d=c;
 }

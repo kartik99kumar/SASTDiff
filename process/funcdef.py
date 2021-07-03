@@ -31,4 +31,6 @@ def evaluateFuncDef(funcDef):
             s.addCall(c)
             s.addToLog(log)
 
+    s.show()
+
     return s

@@ -1,7 +1,7 @@
 import pycparser.c_ast as ast
-from structs.field import Field
 from structs.call import Call
 from process.funccall import evaluateFuncCall
+from process.structref import evaluateStructRef
 
 
 def evaluateAssignment(assignment, state):
@@ -13,78 +13,90 @@ def evaluateAssignment(assignment, state):
     value = None
 
     if isinstance(rval, ast.ID):
+
         name = rval.name
-        value = state.getVariableValue(name)
+        rvar = state.getVariable(name)
+        if rvar is not None:
+            value = rvar.getValue()
 
-    elif isinstance(rval, ast.FuncCall):
-        value = None
+    elif isinstance(rval, ast.StructRef):
 
-    elif(isinstance(rval, ast.StructRef)):
-        if isinstance(rval.name, ast.ID):
-            name = rval.name.name
-        field = rval.field.name
-        value = state.getVariableValue(name, field)
+        field = evaluateStructRef(rval, state)
+        value = field.getValue()
 
-    elif(isinstance(rval, ast.Constant)):
+    elif isinstance(rval, ast.Constant):
+
         value = rval.value
 
     lval = assignment.lvalue
-    if(isinstance(lval, ast.ID)):
+
+    if isinstance(lval, ast.ID):
+
         name = lval.name
-        state.updateVariable(name, value)
+        var = state.getVariable(name)
+        if var is None:
+            return
+
+        var.setValue(value)
         state.addToLog(
             "variable \"{}\" assigned value \"{}\"".format(name, value))
-        if(isinstance(rval, ast.ID)):
+
+        if isinstance(rval, ast.ID):
+
             rname = rval.name
-            state.resetDependency(name)
-            state.addDependency(name, state.variables[rname])
+            var.resetDependency()
+            rvar = state.getVariable(rname)
+            if rvar is not None:
+                var.addDependency(rvar)
+                state.addToLog(
+                    "variable \"{}\" is added as dependency of \"{}\"".format(rname, name))
+
+        elif isinstance(rval, ast.StructRef):
+
+            field = evaluateStructRef(rval, state)
+            var.resetDependency()
+            var.addDependency(field)
+            state.addToLog("variable \"{}\" added as dependency of \"{}\"".format(
+                field.name, name))
+
+        elif isinstance(rval, ast.FuncCall):
+
+            call, flog = evaluateFuncCall(rval, state)
+            var.resetDependency()
+            var.addDependency(call)
             state.addToLog(
-                "variable \"{}\" is added as dependency of \"{}\"".format(rname, name))
-        elif(isinstance(rval, ast.StructRef)):
-            rname = rval.name.name
-            while isinstance(rval, ast.ID):
-                rname = rname.name
-            rfield = rval.field.name
-            f = Field(rfield, state.variables[rname])
-            state.resetDependency(name)
-            state.addDependency(name, f)
-            state.addToLog("variable \"{}\" field \"{}\" added as dependency of \"{}\"".format(
-                rname, rfield, name))
-        elif(isinstance(rval, ast.FuncCall)):
-            c, flog = evaluateFuncCall(rval, state)
-            state.resetDependency(name)
-            state.addDependency(name, c)
-            state.addToLog(
-                "function call added as dependency of variable \"{}\"".format(name))
-            state.addToLog(flog)
-    elif(isinstance(lval, ast.StructRef)):
-        name = lval.name.name
-        while isinstance(name, ast.ID):
-            name = name.name
-        field = lval.field.name
-        state.updateVariable(name, value, field)
-        state.addToLog("variable \"{}\" field \"{}\" assigned value \"{}\"".format(
-            name, field, value))
-        if(isinstance(rval, ast.ID)):
+                "function call \"{}\" added as dependency of variable \"{}\"".format(call.name, name))
+
+    elif isinstance(lval, ast.StructRef):
+
+        field = evaluateStructRef(lval, state)
+        field.setValue(value)
+        name = field.name
+        state.addToLog("variable \"{}\" assigned value \"{}\"".format(
+            field.name, value))
+
+        if isinstance(rval, ast.ID):
+
             rname = rval.name
-            if rname in state.variables:
-                state.resetDependency(name, field)
-                state.addDependency(name, state.variables[rname], field)
-                state.addToLog("variable \"{}\" added as dependency of variable \"{}\" field \"{}\"".format(
-                    rname, name, field))
-        elif(isinstance(rval, ast.StructRef)):
-            rname = rval.name.name
-            rfield = rval.field.name
-            if rname in state.variables:
-                f = Field(rfield, state.variables[rname])
-                state.resetDependency(name, field)
-                state.addDependency(name, f)
-                state.addToLog("variable \"{}\" field \"{}\" added as dependency of variable \"{}\" field \"{}\"".format(
-                    rname, rfield, name, field))
-        elif(isinstance(rval, ast.FuncCall)):
-            c, flog = evaluateFuncCall(rval, state)
-            state.resetDependency(name, field)
-            state.addDependency(name, c, field)
+            field.resetDependency()
+            rvar = state.getVariable(rname)
+            if rvar is not None:
+                field.addDependency(rvar)
+                state.addToLog(
+                    "variable \"{}\" is added as dependency of \"{}\"".format(rname, name))
+
+        elif isinstance(rval, ast.StructRef):
+
+            rfield = evaluateStructRef(rval, state)
+            field.resetDependency()
+            field.addDependency(rfield)
+            state.addToLog("variable \"{}\" added as dependency of \"{}\"".format(
+                rfield.name, name))
+
+        elif isinstance(rval, ast.FuncCall):
+
+            call, flog = evaluateFuncCall(rval, state)
+            field.resetDependency()
+            field.addDependency(call)
             state.addToLog(
-                "function call added as dependency of variable \"{}\" field \"{}\"".format(name, field))
-            state.addToLog(flog)
+                "function call \"{}\" added as dependency of variable \"{}\"".format(call.name, name))

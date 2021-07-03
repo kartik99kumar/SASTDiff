@@ -1,5 +1,5 @@
 from structs.variable import Variable
-from structs.structvariable import StructVariable
+from structs.call import Call
 import copy
 
 
@@ -7,53 +7,50 @@ class State:
 
     def __init__(self):
         self.variables = {}
-        self.args = {}
-        self.inputs = []
+        self.args = []
         self.log = []
         self.calls = []
 
     def addVariable(self, variable):
-        self.variables[variable.name] = variable
+
+        if not isinstance(variable, Variable):
+            return
+
+        name = variable.name
+        if name is not None:
+            self.variables[name] = variable
+
+    def getVariable(self, variableName):
+
+        if variableName in self.variables:
+            return self.variables[variableName]
+        else:
+            return None
 
     def addCall(self, call):
-        self.calls.append(call)
 
-    def updateVariable(self, variableName, newValue, field=None):
+        if isinstance(call, Call):
+            self.calls.append(call)
 
-        if variableName in self.variables:
-            if isinstance(self.variables[variableName], Variable):
-                self.variables[variableName].updateValue(newValue)
-            elif isinstance(self.variables[variableName], StructVariable):
-                self.variables[variableName].updateFieldValue(field, newValue)
+    def getCall(self, callName):
 
-        return None
+        calls = []
+        if callName is None:
+            return None
 
-    def addDependency(self, dependeeName, dependency, dependeeField=None):
-        # dependency can be field or variable or call
-        if dependeeName in self.variables:
-            if dependeeField is not None:
-                self.variables[dependeeName].addFieldDependency(
-                    dependeeField, dependency)
-            else:
-                self.variables[dependeeName].addDependency(dependency)
+        for call in self.calls:
+            if call.name == callName:
+                calls.append(call)
 
-    def resetDependency(self, dependeeName, dependeeField=None):
-        if dependeeName in self.variables:
-            if dependeeField is not None:
-                self.variables[dependeeName].resetFieldDependency(
-                    dependeeField)
-            else:
-                self.variables[dependeeName].resetDependency()
+        return calls
 
-    def getVariableValue(self, variableName, field=None):
+    def addArg(self, arg):
 
-        if variableName in self.variables:
-            if isinstance(self.variables[variableName], Variable):
-                return self.variables[variableName].getValue()
-            elif isinstance(self.variables[variableName], StructVariable) and field is not None:
-                return self.variables[variableName].getFieldValue(field)
+        if isinstance(arg, Variable):
+            self.args.append(arg)
 
-        return None
+    def getArgs(self):
+        return self.args
 
     def addToLog(self, log):
         self.log.append(log)
@@ -68,34 +65,18 @@ class State:
                 log += "{}: {}\n".format(i+1, l)
             file.write(log)
 
-    def showVariables(self):
-        for var in self.variables:
-            self.variables[var].show()
-
-    def addAsInput(self, name):
-        self.inputs.append(name)
-
-    def addAsArg(self, arg):
-        self.args[arg.name] = arg
-
     def snapshot(self):
 
         s = copy.deepcopy(self)
         return s
 
-    def showCalls(self):
+    def show(self):
+        print("args: \n")
+        for arg in self.args:
+            arg.show(1)
+        print("variables: \n")
+        for var in self.variables:
+            self.variables[var].show(1)
+        print("calls: \n")
         for call in self.calls:
             call.show()
-
-    def showArgs(self):
-        for arg in self.args:
-            self.args[arg].show()
-
-    def show(self):
-        print("inputs: {}".format(self.inputs))
-        print("args: ")
-        self.showArgs()
-        print("variables:")
-        self.showVariables()
-        print("calls:")
-        self.showCalls()
