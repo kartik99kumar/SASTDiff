@@ -1,0 +1,3 @@
+code/diffshell:7:5: shell injection vulnerability warning: 
+	command argument "a" has direct/indirect dependency on user input "userInput"
+

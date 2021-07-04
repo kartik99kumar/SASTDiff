@@ -1,0 +1,42 @@
+args: 
+
+variables: 
+
+	variable name: userInput value: None
+	variable fields: 
+
+	dependencies: []
+
+	variable name: a value: None
+	variable fields: 
+
+	dependencies: ['userInput']
+
+calls: 
+
+function name: gets arguments: 
+
+	variable name: userInput value: None
+	variable fields: 
+
+	dependencies: []
+
+function name: strcpy arguments: 
+
+	variable name: a value: None
+	variable fields: 
+
+	dependencies: []
+
+	variable name: userInput value: None
+	variable fields: 
+
+	dependencies: []
+
+function name: system arguments: 
+
+	variable name: a value: None
+	variable fields: 
+
+	dependencies: ['userInput']
+

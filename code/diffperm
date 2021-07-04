@@ -1,0 +1,4 @@
+void test(){
+
+    chmod("result/result.txt",S_IXOTH);
+}

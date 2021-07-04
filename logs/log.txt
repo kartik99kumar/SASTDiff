@@ -1,0 +1,5 @@
+1: variable "userInput" declared
+2: gets called with args: [variable "userInput"] 
+3: variable "a" declared
+4: strcpy called with args: [variable "a"] [variable "userInput"] 
+5: system called with args: [variable "a"] 

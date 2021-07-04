@@ -1,6 +1,5 @@
 DONE 1. merge variable and struct variable 
 DONE 2. add necessary functions
-3. make necessary changes in rest of the code [funcdef funccall left]
-
-
-1. recursive dependency
+DONE 3. make necessary changes in rest of the code
+DONE 4. recursive dependency
+5. evaluate return 

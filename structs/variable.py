@@ -1,6 +1,3 @@
-from pycparser.c_ast import PtrDecl
-
-
 class Variable:
 
     def __init__(self, name):
@@ -49,11 +46,15 @@ class Variable:
         self.isInput = True
 
     def show(self, tab=0):
-        print("{}variable name: {} value: {}".format(
-            tab*"\t", self.name, self.value))
-        print("{}variable fields: \n".format(tab*"\t"))
+
+        varstr = ""
+        varstr += "{}variable name: {} value: {}\n".format(
+            tab*"\t", self.name, self.value)
+        varstr += "{}variable fields: \n\n".format(tab*"\t")
         for field in self.fields:
-            self.fields[field].show(tab+1)
+            varstr += self.fields[field].show(tab+1)
         deps = self.getDependency()
-        print("{}dependencies: {}".format(tab*"\t", list(deps.keys())))
-        print("\n")
+        varstr += "{}dependencies: {}\n".format(tab*"\t", list(deps.keys()))
+        varstr += "\n"
+
+        return varstr

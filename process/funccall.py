@@ -1,6 +1,8 @@
 import pycparser.c_ast as ast
 from structs.call import Call
 from process.structref import evaluateStructRef
+from structs.variable import Variable
+from process.modfunc import evaluateModFunc
 import copy
 
 inputFunctions = ["scanf", "gets"]
@@ -13,8 +15,9 @@ def evaluateFuncCall(funcCall, state):
 
     funcname = funcCall.name.name
     args = funcCall.args
+    coord = funcCall.coord
 
-    call = Call(funcname)
+    call = Call(funcname, coord)
 
     log = "{} called with args: ".format(funcname)
 
@@ -32,6 +35,10 @@ def evaluateFuncCall(funcCall, state):
 
                 name = arg.name
                 svar = state.getVariable(name)
+
+                if svar is None:
+                    svar = Variable(name)
+
                 if funcname in inputFunctions:
                     svar.setAsInput()
                 var = copy.deepcopy(svar)
@@ -51,6 +58,10 @@ def evaluateFuncCall(funcCall, state):
 
                 name = arg.expr.name
                 svar = state.getVariable(name)
+
+                if svar is None:
+                    svar = Variable(name)
+
                 if funcname in inputFunctions:
                     svar.setAsInput()
                 var = copy.deepcopy(svar)
@@ -63,6 +74,10 @@ def evaluateFuncCall(funcCall, state):
 
                     name = arg.expr.expr.name
                     svar = state.getVariable(name)
+
+                    if svar is None:
+                        svar = Variable(name)
+
                     if funcname in inputFunctions:
                         svar.setAsInput()
                     var = copy.deepcopy(svar)
@@ -73,10 +88,16 @@ def evaluateFuncCall(funcCall, state):
 
                     name = arg.expr.name
                     svar = state.getVariable(name)
+
+                    if svar is None:
+                        svar = Variable(name)
+
                     if funcname in inputFunctions:
                         svar.setAsInput()
                     var = copy.deepcopy(svar)
                     call.addArg(var)
                     log += "[variable \"{}\"] ".format(name)
+
+    evaluateModFunc(call, state)
 
     return call, log

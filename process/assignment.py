@@ -1,5 +1,5 @@
+from structs.variable import Variable
 import pycparser.c_ast as ast
-from structs.call import Call
 from process.funccall import evaluateFuncCall
 from process.structref import evaluateStructRef
 
@@ -34,8 +34,10 @@ def evaluateAssignment(assignment, state):
 
         name = lval.name
         var = state.getVariable(name)
+
         if var is None:
-            return
+            var = Variable(name)
+            state.addVariable(var)
 
         var.setValue(value)
         state.addToLog(
@@ -46,10 +48,14 @@ def evaluateAssignment(assignment, state):
             rname = rval.name
             var.resetDependency()
             rvar = state.getVariable(rname)
-            if rvar is not None:
-                var.addDependency(rvar)
-                state.addToLog(
-                    "variable \"{}\" is added as dependency of \"{}\"".format(rname, name))
+
+            if rvar is None:
+                rvar = Variable(rname)
+                state.addVariable(rvar)
+
+            var.addDependency(rvar)
+            state.addToLog(
+                "variable \"{}\" is added as dependency of \"{}\"".format(rname, name))
 
         elif isinstance(rval, ast.StructRef):
 
@@ -80,10 +86,14 @@ def evaluateAssignment(assignment, state):
             rname = rval.name
             field.resetDependency()
             rvar = state.getVariable(rname)
-            if rvar is not None:
-                field.addDependency(rvar)
-                state.addToLog(
-                    "variable \"{}\" is added as dependency of \"{}\"".format(rname, name))
+
+            if rvar is None:
+                rvar = Variable(rname)
+                state.addVariable(rvar)
+
+            field.addDependency(rvar)
+            state.addToLog(
+                "variable \"{}\" is added as dependency of \"{}\"".format(rname, name))
 
         elif isinstance(rval, ast.StructRef):
 

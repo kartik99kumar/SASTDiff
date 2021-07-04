@@ -1,0 +1,9 @@
+void test(){
+
+    char* userInput;
+    gets(userInput);
+    char* a;
+    strcpy(a,userInput);
+    system(a);
+    
+}

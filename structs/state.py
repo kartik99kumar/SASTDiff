@@ -70,13 +70,20 @@ class State:
         s = copy.deepcopy(self)
         return s
 
-    def show(self):
-        print("args: \n")
+    def show(self, file=None):
+
+        statestr = ""
+        statestr += "args: \n\n"
         for arg in self.args:
-            arg.show(1)
-        print("variables: \n")
+            statestr += arg.show(1)
+        statestr += "variables: \n\n"
         for var in self.variables:
-            self.variables[var].show(1)
-        print("calls: \n")
+            statestr += self.variables[var].show(1)
+        statestr += "calls: \n\n"
         for call in self.calls:
-            call.show()
+            statestr += call.show()
+
+        if file is None:
+            return statestr
+        else:
+            file.write(statestr)
