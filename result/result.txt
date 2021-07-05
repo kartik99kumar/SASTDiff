@@ -1,3 +1,36 @@
-code/diffshell:7:5: shell injection vulnerability warning: 
+code/diff:9:5: binding to unwanted interfaces warning: 
+	Binding to address "192.168.1.1" is not allowed. Use allowed addresses for binding.
+
+code/diff:12:5: binding to unwanted interfaces warning: 
+	Binding using INADDR_ANY is vulnerable. Use allowed addresses for binding.
+
+code/diff:15:5: binding to unwanted interfaces warning: 
+	Binding using INADDR_ANY is vulnerable. Use allowed addresses for binding.
+
+code/diff:18:5: binding to unwanted interfaces warning: 
+	Binding using INADDR_ANY is vulnerable. Use allowed addresses for binding.
+
+code/diff:21:5: binding to unwanted interfaces warning: 
+	Binding to address "192.168.1.1" is not allowed. Use allowed addresses for binding.
+
+code/diff:23:5: buffer overflow warning: 
+	"scanf" is vulnerable to buffer overflow. Use "%9s" for example in place of "%s". 
+
+code/diff:24:5: buffer overflow warning: 
+	"gets" is vulnerable to buffer overflow. Use "gets_s" in place of "gets"
+
+code/diff:25:5: buffer overflow warning: 
+	"fscanf" is vulnerable to buffer overflow. Use "%9s" for example in place of "%s". 
+
+code/diff:27:5: bad file permission warning: 
+	file permission of "result/result.txt" changed to execute by others
+
+code/diff:30:5: buffer overflow warning: 
+	"gets" is vulnerable to buffer overflow. Use "gets_s" in place of "gets"
+
+code/diff:32:5: buffer overflow warning: 
+	"strcpy" is vulnerable to buffer overflow. "strncpy" is a safer alternative.
+
+code/diff:33:5: shell injection vulnerability warning: 
 	command argument "a" has direct/indirect dependency on user input "userInput"
 

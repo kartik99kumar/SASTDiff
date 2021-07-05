@@ -67,7 +67,7 @@ def evaluateAssignment(assignment, state):
 
         elif isinstance(rval, ast.FuncCall):
 
-            call, flog = evaluateFuncCall(rval, state)
+            call = evaluateFuncCall(rval, state)
             var.resetDependency()
             var.addDependency(call)
             state.addToLog(
@@ -105,7 +105,7 @@ def evaluateAssignment(assignment, state):
 
         elif isinstance(rval, ast.FuncCall):
 
-            call, flog = evaluateFuncCall(rval, state)
+            call = evaluateFuncCall(rval, state)
             field.resetDependency()
             field.addDependency(call)
             state.addToLog(

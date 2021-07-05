@@ -1,8 +1,10 @@
+from os import stat
 import pycparser.c_ast as ast
 from structs.call import Call
 from process.structref import evaluateStructRef
 from structs.variable import Variable
 from process.modfunc import evaluateModFunc
+from process.flags import evaluateFlag
 import copy
 
 inputFunctions = ["scanf", "gets"]
@@ -98,6 +100,15 @@ def evaluateFuncCall(funcCall, state):
                     call.addArg(var)
                     log += "[variable \"{}\"] ".format(name)
 
-    evaluateModFunc(call, state)
+            elif isinstance(arg, ast.BinaryOp) and arg.op == "|":
 
-    return call, log
+                flaglist = []
+                evaluateFlag(arg, flaglist)
+                call.addArg(flaglist)
+                log += "[flags] "
+
+    state.addToLog(log)
+    evaluateModFunc(call, state)
+    state.addCall(call)
+
+    return call

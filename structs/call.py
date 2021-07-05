@@ -18,7 +18,7 @@ class Call:
         for arg in self.args:
             if isinstance(arg, Variable):
                 callstr += arg.show(1)
-            else:
+            elif isinstance(arg, str):
                 callstr += arg
 
         return callstr

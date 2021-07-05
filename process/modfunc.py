@@ -28,6 +28,8 @@ def evaluateModFunc(funcCall, state):
                 state.addVariable(svar)
 
             dvar.resetDependency()
+            state.addToLog("\"{}\" added as dependency of \"{}\"".format(
+                svar.name, dvar.name))
             dvar.addDependency(svar)
 
     elif name == "sprintf" or name == "snprintf":
@@ -58,4 +60,7 @@ def evaluateModFunc(funcCall, state):
                     svar = Variable(srcName)
                     state.addVariable(svar)
 
+                dvar.resetDependency()
+                state.addToLog("\"{}\" added as dependency of \"{}\"".format(
+                    svar.name, dvar.name))
                 dvar.addDependency(svar)

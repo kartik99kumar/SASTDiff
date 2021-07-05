@@ -1,6 +1,6 @@
 import pycparser.c_ast as ast
+import process
 from structs.variable import Variable
-from process.structref import evaluateStructRef
 
 
 def evaluateDecl(decl, state):
@@ -39,7 +39,7 @@ def evaluateDecl(decl, state):
 
     elif isinstance(decl.init, ast.StructRef):
 
-        field = evaluateStructRef(decl.init, state)
+        field = process.structref.evaluateStructRef(decl.init, state)
         value = field.getValue()
         var.setValue(value)
         state.addToLog("variable \"{}\" is initialised to field \"{}\" with value {}".format(

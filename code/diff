@@ -1,0 +1,34 @@
+void test(){
+
+    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    struct sockaddr_in localaddr;
+    localaddr.sin_family = AF_INET;
+    localaddr.sin_port = 0; 
+
+    localaddr.sin_addr.s_addr = inet_addr("192.168.1.1");
+    bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
+
+    localaddr.sin_addr.s_addr = INADDR_ANY;
+    bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
+
+    localaddr.sin_addr.s_addr = inet_addr(INADDR_ANY);
+    bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
+
+    localaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
+
+    localaddr.sin_addr.s_addr = "192.168.1.1";
+    bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
+
+    scanf("%s%s",a,b);
+    gets(userInput);
+    fscanf(fp,"%s",a,b);
+
+    chmod("result/result.txt",S_IXOTH);
+
+    char* userInput;
+    gets(userInput);
+    char* a;
+    strcpy(a,userInput);
+    system(a);
+}
