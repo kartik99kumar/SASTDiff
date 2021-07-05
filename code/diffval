@@ -1,4 +1,4 @@
-void dummy(){char* userInput;
+char* userInput;
 gets(userInput);
 validateInput(userInput);
 randomFunction(userInput);
@@ -16,4 +16,4 @@ system(a);
 validateInput(a);
 int b;
 b=a;
-system(b);}
+system(b);

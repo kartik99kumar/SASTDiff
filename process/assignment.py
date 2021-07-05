@@ -2,6 +2,7 @@ from structs.variable import Variable
 import pycparser.c_ast as ast
 from process.funccall import evaluateFuncCall
 from process.structref import evaluateStructRef
+from utils.data import validationFunctions
 
 
 def evaluateAssignment(assignment, state):
@@ -40,6 +41,8 @@ def evaluateAssignment(assignment, state):
             state.addVariable(var)
 
         var.setValue(value)
+        var.resetValidation()
+
         state.addToLog(
             "variable \"{}\" assigned value \"{}\"".format(name, value))
 
@@ -70,6 +73,10 @@ def evaluateAssignment(assignment, state):
             call = evaluateFuncCall(rval, state)
             var.resetDependency()
             var.addDependency(call)
+
+            if call.name in validationFunctions:
+                var.setValidation()
+
             state.addToLog(
                 "function call \"{}\" added as dependency of variable \"{}\"".format(call.name, name))
 
@@ -78,6 +85,9 @@ def evaluateAssignment(assignment, state):
         field = evaluateStructRef(lval, state)
         field.setValue(value)
         name = field.name
+
+        field.resetValidation()
+
         state.addToLog("variable \"{}\" assigned value \"{}\"".format(
             field.name, value))
 
@@ -108,5 +118,9 @@ def evaluateAssignment(assignment, state):
             call = evaluateFuncCall(rval, state)
             field.resetDependency()
             field.addDependency(call)
+
+            if call.name in validationFunctions:
+                field.setValidation()
+
             state.addToLog(
                 "function call \"{}\" added as dependency of variable \"{}\"".format(call.name, name))

@@ -1,36 +1,21 @@
-code/diff:9:5: binding to unwanted interfaces warning: 
-	Binding to address "192.168.1.1" is not allowed. Use allowed addresses for binding.
-
-code/diff:12:5: binding to unwanted interfaces warning: 
-	Binding using INADDR_ANY is vulnerable. Use allowed addresses for binding.
-
-code/diff:15:5: binding to unwanted interfaces warning: 
-	Binding using INADDR_ANY is vulnerable. Use allowed addresses for binding.
-
-code/diff:18:5: binding to unwanted interfaces warning: 
-	Binding using INADDR_ANY is vulnerable. Use allowed addresses for binding.
-
-code/diff:21:5: binding to unwanted interfaces warning: 
-	Binding to address "192.168.1.1" is not allowed. Use allowed addresses for binding.
-
-code/diff:23:5: buffer overflow warning: 
-	"scanf" is vulnerable to buffer overflow. Use "%9s" for example in place of "%s". 
-
-code/diff:24:5: buffer overflow warning: 
+tmp/tmpcode:2:1: buffer overflow warning: 
 	"gets" is vulnerable to buffer overflow. Use "gets_s" in place of "gets"
 
-code/diff:25:5: buffer overflow warning: 
-	"fscanf" is vulnerable to buffer overflow. Use "%9s" for example in place of "%s". 
+tmp/tmpcode:5:1: shell injection vulnerability warning: 
+	command argument "userInput" is direct user input. Use user input validation before using it in shell commands.
 
-code/diff:27:5: bad file permission warning: 
-	file permission of "result/result.txt" changed to execute by others
+tmp/tmpcode:7:1: shell injection vulnerability warning: 
+	command argument "userInput" is direct user input. Argument is validated but ensure proper validation.
 
-code/diff:30:5: buffer overflow warning: 
-	"gets" is vulnerable to buffer overflow. Use "gets_s" in place of "gets"
+tmp/tmpcode:11:1: shell injection vulnerability warning: 
+	command argument "a" is direct user input. Use user input validation before using it in shell commands.
 
-code/diff:32:5: buffer overflow warning: 
-	"strcpy" is vulnerable to buffer overflow. "strncpy" is a safer alternative.
+tmp/tmpcode:13:1: shell injection vulnerability warning: 
+	command argument "a" is direct user input. Argument is validated but ensure proper validation.
 
-code/diff:33:5: shell injection vulnerability warning: 
-	command argument "a" has direct/indirect dependency on user input "userInput"
+tmp/tmpcode:15:1: shell injection vulnerability warning: 
+	command argument "a" is direct user input. Use user input validation before using it in shell commands.
+
+tmp/tmpcode:19:1: shell injection vulnerability warning: 
+	command argument "b" has direct/indirect dependency on user input "a". User input was validated. Ensure proper validation.
 

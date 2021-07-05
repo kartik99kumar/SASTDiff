@@ -1,36 +1,21 @@
-1: variable "sockfd" declared
-2: variable "localaddr" of structure "sockaddr_in" declared
-3: sin_family added as field of localaddr
-4: variable "sin_family" assigned value "None"
-5: variable "AF_INET" is added as dependency of "sin_family"
-6: sin_port added as field of localaddr
-7: variable "sin_port" assigned value "0"
-8: sin_addr added as field of localaddr
-9: s_addr added as field of sin_addr
-10: variable "s_addr" assigned value "None"
-11: inet_addr called with args: [constant ""192.168.1.1""] 
-12: function call "inet_addr" added as dependency of variable "s_addr"
-13: bind called with args: [variable "sockfd"] [variable "localaddr"] [variable "localaddr"] 
-14: variable "s_addr" assigned value "None"
-15: variable "INADDR_ANY" is added as dependency of "s_addr"
-16: bind called with args: [variable "sockfd"] [variable "localaddr"] [variable "localaddr"] 
-17: variable "s_addr" assigned value "None"
-18: inet_addr called with args: [variable "INADDR_ANY"] 
-19: function call "inet_addr" added as dependency of variable "s_addr"
-20: bind called with args: [variable "sockfd"] [variable "localaddr"] [variable "localaddr"] 
-21: variable "s_addr" assigned value "None"
-22: htonl called with args: [variable "INADDR_ANY"] 
-23: function call "htonl" added as dependency of variable "s_addr"
-24: bind called with args: [variable "sockfd"] [variable "localaddr"] [variable "localaddr"] 
-25: variable "s_addr" assigned value ""192.168.1.1""
-26: bind called with args: [variable "sockfd"] [variable "localaddr"] [variable "localaddr"] 
-27: scanf called with args: [constant ""%s%s""] [variable "a"] [variable "b"] 
-28: gets called with args: [variable "userInput"] 
-29: fscanf called with args: [variable "fp"] [constant ""%s""] [variable "a"] [variable "b"] 
-30: chmod called with args: [constant ""result/result.txt""] [variable "S_IXOTH"] 
-31: variable "userInput" declared
-32: gets called with args: [variable "userInput"] 
-33: variable "a" declared
-34: strcpy called with args: [variable "a"] [variable "userInput"] 
-35: "userInput" added as dependency of "a"
-36: system called with args: [variable "a"] 
+1: variable "userInput" declared
+2: gets called with args: [variable "userInput"] 
+3: validateInput called with args: [variable "userInput"] 
+4: randomFunction called with args: [variable "userInput"] 
+5: system called with args: [variable "userInput"] 
+6: validateInput called with args: [variable "userInput"] 
+7: system called with args: [variable "userInput"] 
+8: variable "a" declared
+9: scanf called with args: [constant ""%d""] [variable "a"] 
+10: system called with args: [variable "a"] 
+11: variable "a" assigned value "None"
+12: validateInput called with args: 
+13: function call "validateInput" added as dependency of variable "a"
+14: system called with args: [variable "a"] 
+15: add called with args: [variable "a"] 
+16: system called with args: [variable "a"] 
+17: validateInput called with args: [variable "a"] 
+18: variable "b" declared
+19: variable "b" assigned value "None"
+20: variable "a" is added as dependency of "b"
+21: system called with args: [variable "b"] 

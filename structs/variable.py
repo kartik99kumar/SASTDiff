@@ -6,6 +6,7 @@ class Variable:
         self.fields = {}
         self.deps = {}
         self.isInput = False
+        self.isValidated = False
 
     def getValue(self):
         return self.value
@@ -45,11 +46,19 @@ class Variable:
     def setAsInput(self):
         self.isInput = True
 
+    def setValidation(self):
+        self.isValidated = True
+
+    def resetValidation(self):
+        self.isValidated = False
+
     def show(self, tab=0):
 
         varstr = ""
         varstr += "{}variable name: {} value: {}\n".format(
             tab*"\t", self.name, self.value)
+        varstr += "{}user input: {} validation: {}\n".format(
+            tab*"\t", self.isInput, self.isValidated)
         varstr += "{}variable fields: \n\n".format(tab*"\t")
         for field in self.fields:
             varstr += self.fields[field].show(tab+1)

@@ -6,6 +6,7 @@ from structs.variable import Variable
 from process.modfunc import evaluateModFunc
 from process.flags import evaluateFlag
 import copy
+from utils.data import validationFunctions
 
 inputFunctions = ["scanf", "gets"]
 
@@ -43,17 +44,32 @@ def evaluateFuncCall(funcCall, state):
 
                 if funcname in inputFunctions:
                     svar.setAsInput()
+                elif funcname in validationFunctions:
+                    svar.setValidation()
+
                 var = copy.deepcopy(svar)
                 call.addArg(var)
+
+                if funcname not in validationFunctions:
+                    svar.resetValidation()
+
                 log += "[variable \"{}\"] ".format(name)
 
             elif isinstance(arg, ast.StructRef):
 
                 field = evaluateStructRef(arg)
+
                 if funcname in inputFunctions:
                     field.setAsInput()
+                elif funcname in validationFunctions:
+                    field.setValidation()
+
                 var = copy.deepcopy(field)
                 call.addArg(var)
+
+                if funcname not in validationFunctions:
+                    field.resetValidation()
+
                 log += "[variable \"{}\"] ".format(field.name)
 
             elif isinstance(arg, ast.UnaryOp):
@@ -66,8 +82,15 @@ def evaluateFuncCall(funcCall, state):
 
                 if funcname in inputFunctions:
                     svar.setAsInput()
+                elif funcname in validationFunctions:
+                    svar.setValidation()
+
                 var = copy.deepcopy(svar)
                 call.addArg(var)
+
+                if funcname not in validationFunctions:
+                    svar.resetValidation()
+
                 log += "[variable \"{}\"] ".format(name)
 
             elif isinstance(arg, ast.Cast):
@@ -82,8 +105,15 @@ def evaluateFuncCall(funcCall, state):
 
                     if funcname in inputFunctions:
                         svar.setAsInput()
+                    elif funcname in validationFunctions:
+                        svar.setValidation()
+
                     var = copy.deepcopy(svar)
                     call.addArg(var)
+
+                    if funcname not in validationFunctions:
+                        svar.resetValidation()
+
                     log += "[variable \"{}\"] ".format(name)
 
                 elif isinstance(arg.expr, ast.ID):
@@ -96,8 +126,15 @@ def evaluateFuncCall(funcCall, state):
 
                     if funcname in inputFunctions:
                         svar.setAsInput()
+                    elif funcname in validationFunctions:
+                        svar.setValidation()
+
                     var = copy.deepcopy(svar)
                     call.addArg(var)
+
+                    if funcname not in validationFunctions:
+                        svar.resetValidation()
+
                     log += "[variable \"{}\"] ".format(name)
 
             elif isinstance(arg, ast.BinaryOp) and arg.op == "|":
