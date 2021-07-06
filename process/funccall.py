@@ -16,6 +16,8 @@ def evaluateFuncCall(funcCall, state):
     if not isinstance(funcCall, ast.FuncCall):
         return
 
+    state.setLogCoord(funcCall.coord)
+
     funcname = funcCall.name.name
     args = funcCall.args
     coord = funcCall.coord

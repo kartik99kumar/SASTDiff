@@ -10,6 +10,8 @@ def evaluateAssignment(assignment, state):
     if not isinstance(assignment, ast.Assignment):
         return
 
+    state.setLogCoord(assignment.coord)
+
     rval = assignment.rvalue
     value = None
 

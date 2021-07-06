@@ -5,6 +5,8 @@ from structs.variable import Variable
 
 def evaluateDecl(decl, state):
 
+    state.setLogCoord(decl.coord)
+
     name = decl.name
     var = Variable(name)
     state.addVariable(var)

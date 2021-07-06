@@ -10,6 +10,7 @@ class State:
         self.args = []
         self.log = []
         self.calls = []
+        self.logCoord = None
 
     def addVariable(self, variable):
 
@@ -53,7 +54,10 @@ class State:
         return self.args
 
     def addToLog(self, log):
-        self.log.append(log)
+        self.log.append("{}: {}".format(self.logCoord, log))
+
+    def setLogCoord(self, coord):
+        self.logCoord = coord
 
     def showLog(self, file=None):
         if file is None:
