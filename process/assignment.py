@@ -39,88 +39,118 @@ def evaluateAssignment(assignment, state):
         if var is None:
             var = Variable(name)
             state.addVariable(var)
+            state.addLog("variable \"{}\" added to state".format(var.name))
 
         var.setValue(value)
-        var.resetValidation()
+        state.addLog("variable \"{}\" value set to {}".format(
+            var.name, var.value))
 
-        state.addToLog(
-            "variable \"{}\" assigned value \"{}\"".format(name, value))
+        var.resetValidation()
+        state.addToLog("variable \"{}\" validation reset".format(var.name))
 
         if isinstance(rval, ast.ID):
 
             rname = rval.name
             var.resetDependency()
+            state.addToLog("variable \"{}\" dependency reset".format(var.name))
+
             rvar = state.getVariable(rname)
 
             if rvar is None:
                 rvar = Variable(rname)
                 state.addVariable(rvar)
+                state.addLog(
+                    "variable \"{}\" added to state".format(rvar.name))
 
             var.addDependency(rvar)
             state.addToLog(
-                "variable \"{}\" is added as dependency of \"{}\"".format(rname, name))
+                "variable \"{}\" added as dependency of \"{}\"".format(rvar.name, var.name))
 
         elif isinstance(rval, ast.StructRef):
 
             field = evaluateStructRef(rval, state)
+
             var.resetDependency()
+            state.addToLog("variable \"{}\" dependency reset".format(var.name))
+
             var.addDependency(field)
             state.addToLog("variable \"{}\" added as dependency of \"{}\"".format(
-                field.name, name))
+                field.name, var.name))
 
         elif isinstance(rval, ast.FuncCall):
 
             call = evaluateFuncCall(rval, state)
+
             var.resetDependency()
+            state.addToLog("variable \"{}\" dependency reset".format(var.name))
+
             var.addDependency(call)
+            state.addToLog(
+                "call \"{}\" added as dependency of \"{}\"".format(call.name, var.name))
 
             if call.name in validationFunctions:
                 var.setValidation()
-
-            state.addToLog(
-                "function call \"{}\" added as dependency of variable \"{}\"".format(call.name, name))
+                state.addToLog(
+                    "variable \"{}\" validation set".format(var.name))
 
     elif isinstance(lval, ast.StructRef):
 
         field = evaluateStructRef(lval, state)
+
         field.setValue(value)
+        state.addToLog("variable \"{}\" value set to {}".format(
+            field.name, field.value))
+
         name = field.name
 
         field.resetValidation()
-
-        state.addToLog("variable \"{}\" assigned value \"{}\"".format(
-            field.name, value))
+        state.addToLog("variable \"{}\" validation reset".format(field.name))
 
         if isinstance(rval, ast.ID):
 
             rname = rval.name
+
             field.resetDependency()
+            state.addToLog(
+                "variable \"{}\" dependency reset".format(field.name))
+
             rvar = state.getVariable(rname)
 
             if rvar is None:
                 rvar = Variable(rname)
                 state.addVariable(rvar)
+                state.addToLog(
+                    "variable \"{}\" added to state".format(rvar.name))
 
             field.addDependency(rvar)
             state.addToLog(
-                "variable \"{}\" is added as dependency of \"{}\"".format(rname, name))
+                "variable \"{}\" is added as dependency of \"{}\"".format(rname, field.name))
 
         elif isinstance(rval, ast.StructRef):
 
             rfield = evaluateStructRef(rval, state)
+
             field.resetDependency()
+            state.addToLog(
+                "variable \"{}\" dependency reset".format(field.name))
+
             field.addDependency(rfield)
             state.addToLog("variable \"{}\" added as dependency of \"{}\"".format(
-                rfield.name, name))
+                rfield.name, field.name))
 
         elif isinstance(rval, ast.FuncCall):
 
             call = evaluateFuncCall(rval, state)
+
             field.resetDependency()
+            state.addToLog(
+                "variable \"{}\" dependency reset".format(field.name))
+
             field.addDependency(call)
+            state.addToLog("call \"{}\" added as dependency of \"{}\"".format(
+                call.name, field.name))
 
             if call.name in validationFunctions:
                 field.setValidation()
-
-            state.addToLog(
-                "function call \"{}\" added as dependency of variable \"{}\"".format(call.name, name))
+                state.addToLog(
+                    "variable \"{}\" validation set".format(field.name))
