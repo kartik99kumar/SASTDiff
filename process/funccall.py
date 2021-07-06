@@ -22,8 +22,7 @@ def evaluateFuncCall(funcCall, state):
 
     call = Call(funcname, coord)
 
-    log = "{} called with args: ".format(funcname)
-    alog = ""
+    state.addToLog("function \"{}\" called".format(call.name))
 
     if args is not None:
 
@@ -33,7 +32,7 @@ def evaluateFuncCall(funcCall, state):
 
                 value = arg.value
                 call.addArg(value)
-                log += "[constant \"{}\"] ".format(value)
+                state.addToLog("constant {} added as argument".format(value))
 
             elif isinstance(arg, ast.ID):
 
@@ -43,44 +42,52 @@ def evaluateFuncCall(funcCall, state):
                 if svar is None:
                     svar = Variable(name)
                     state.addVariable(svar)
+                    state.addToLog(
+                        "variable \"{}\" added to state".format(svar.name))
 
                 if funcname in inputFunctions:
                     svar.setAsInput()
-                    alog += "\"{}\" set as Input\n".format(name)
+                    state.addToLog(
+                        "variable \"{}\" set as input".format(svar.name))
 
                 elif funcname in validationFunctions:
                     svar.setValidation()
-                    alog += "\"{}\" validation set\n".format(name)
+                    state.addToLog(
+                        "variable \"{}\" validation set".format(svar.name))
 
                 var = copy.deepcopy(svar)
                 call.addArg(var)
+                state.addToLog(
+                    "variable \"{}\" copy added as argument".format(var.name))
 
                 if funcname not in validationFunctions:
                     svar.resetValidation()
-                    alog += "\"{}\" validation reset\n".format(name)
-
-                log += "[variable \"{}\"] ".format(name)
+                    state.addToLog(
+                        "variable \"{}\" validation reset".format(svar.name))
 
             elif isinstance(arg, ast.StructRef):
 
-                field = evaluateStructRef(arg)
+                field = evaluateStructRef(arg, state)
 
                 if funcname in inputFunctions:
                     field.setAsInput()
-                    alog += "\"{}\" set as Input\n".format(field.name)
+                    state.addToLog(
+                        "variable \"{}\" set as input".format(field.name))
 
                 elif funcname in validationFunctions:
                     field.setValidation()
-                    alog += "\"{}\" validation set\n".format(field.name)
+                    state.addToLog(
+                        "variable \"{}\" validation set".format(field.name))
 
                 var = copy.deepcopy(field)
                 call.addArg(var)
+                state.addToLog(
+                    "variable \"{}\" copy added as argument".format(var.name))
 
                 if funcname not in validationFunctions:
                     field.resetValidation()
-                    alog += "\"{}\" validation reset\n".format(field.name)
-
-                log += "[variable \"{}\"] ".format(field.name)
+                    state.addToLog(
+                        "variable \"{}\" validation reset".format(field.name))
 
             elif isinstance(arg, ast.UnaryOp):
 
@@ -90,23 +97,28 @@ def evaluateFuncCall(funcCall, state):
                 if svar is None:
                     svar = Variable(name)
                     state.addVariable(svar)
+                    state.addToLog(
+                        "variable \"{}\" added to state".format(svar.name))
 
                 if funcname in inputFunctions:
                     svar.setAsInput()
-                    alog += "\"{}\" set as Input\n".format(name)
+                    state.addToLog(
+                        "variable \"{}\" set as input".format(svar.name))
 
                 elif funcname in validationFunctions:
                     svar.setValidation()
-                    alog += "\"{}\" validation set\n".format(name)
+                    state.addToLog(
+                        "variable \"{}\" validation set".format(svar.name))
 
                 var = copy.deepcopy(svar)
                 call.addArg(var)
+                state.addToLog(
+                    "variable \"{}\" copy added as argument".format(var.name))
 
                 if funcname not in validationFunctions:
                     svar.resetValidation()
-                    alog += "\"{}\" validation reset\n".format(name)
-
-                log += "[variable \"{}\"] ".format(name)
+                    state.addToLog(
+                        "variable \"{}\" validation reset".format(svar.name))
 
             elif isinstance(arg, ast.Cast):
 
@@ -118,23 +130,28 @@ def evaluateFuncCall(funcCall, state):
                     if svar is None:
                         svar = Variable(name)
                         state.addVariable(svar)
+                        state.addToLog(
+                            "variable \"{}\" added to state".format(svar.name))
 
                     if funcname in inputFunctions:
                         svar.setAsInput()
-                        alog += "\"{}\" set as Input\n".format(name)
+                        state.addToLog(
+                            "variable \"{}\" set as input".format(svar.name))
 
                     elif funcname in validationFunctions:
                         svar.setValidation()
-                        alog += "\"{}\" validation set\n".format(name)
+                        state.addToLog(
+                            "variable \"{}\" validation set", format(svar.name))
 
                     var = copy.deepcopy(svar)
                     call.addArg(var)
+                    state.addToLog(
+                        "variable \"{}\" copy added as argument".format(var.name))
 
                     if funcname not in validationFunctions:
                         svar.resetValidation()
-                        alog += "\"{}\" validation reset\n".format(name)
-
-                    log += "[variable \"{}\"] ".format(name)
+                        state.addToLog(
+                            "variable \"{}\" validation reset".format(svar.name))
 
                 elif isinstance(arg.expr, ast.ID):
 
@@ -144,34 +161,39 @@ def evaluateFuncCall(funcCall, state):
                     if svar is None:
                         svar = Variable(name)
                         state.addVariable(svar)
+                        state.addToLog(
+                            "variable \"{}\" added to state".format(svar.name))
 
                     if funcname in inputFunctions:
                         svar.setAsInput()
-                        alog += "\"{}\" set as Input\n".format(name)
+                        state.addToLog(
+                            "variable \"{}\" set as input".format(svar.name))
 
                     elif funcname in validationFunctions:
                         svar.setValidation()
-                        alog += "\"{}\" validation set\n".format(name)
+                        state.addToLog(
+                            "variable \"{}\" validation set".format(svar.name))
 
                     var = copy.deepcopy(svar)
                     call.addArg(var)
+                    state.addToLog(
+                        "variable \"{}\" copy added as argument".format(var.name))
 
                     if funcname not in validationFunctions:
                         svar.resetValidation()
-                        alog += "\"{}\" validation reset\n".format(name)
-
-                    log += "[variable \"{}\"] ".format(name)
+                        state.addToLog(
+                            "variable \"{}\" validation reset".format(svar.name))
 
             elif isinstance(arg, ast.BinaryOp) and arg.op == "|":
 
                 flaglist = []
                 evaluateFlag(arg, flaglist)
                 call.addArg(flaglist)
-                log += "[flags] "
+                state.addToLog("flags added as argument")
 
-    state.addToLog(log)
-    state.addToLog(alog)
     evaluateModFunc(call, state)
+
     state.addCall(call)
+    state.addToLog("call \"{}\" added to state".format(call.name))
 
     return call
