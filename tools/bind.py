@@ -5,8 +5,7 @@
 from utils.warning import Warning
 from structs.call import Call
 from structs.variable import Variable
-
-allowedAddresses = ["192.168.1.2"]
+from utils.data import allowedAddresses
 
 
 def evaluateBind(state):

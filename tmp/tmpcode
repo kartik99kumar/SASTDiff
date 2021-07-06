@@ -1,19 +1,4 @@
-void dummy(){char* userInput;
-gets(userInput);
-validateInput(userInput);
-randomFunction(userInput);
-system(userInput);
-validateInput(userInput);
-system(userInput);
-
-int a;
-scanf("%d",&a);
-system(a);
-a=validateInput();
-system(a);
-add(a);
-system(a);
-validateInput(a);
-int b;
-b=a;
-system(b);}
+void dummy(){while(add(1,2)){
+    add(2,3);
+    add(3,4);
+}}

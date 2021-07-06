@@ -1,21 +1,3 @@
-1: variable "userInput" declared
-2: gets called with args: [variable "userInput"] 
-3: validateInput called with args: [variable "userInput"] 
-4: randomFunction called with args: [variable "userInput"] 
-5: system called with args: [variable "userInput"] 
-6: validateInput called with args: [variable "userInput"] 
-7: system called with args: [variable "userInput"] 
-8: variable "a" declared
-9: scanf called with args: [constant ""%d""] [variable "a"] 
-10: system called with args: [variable "a"] 
-11: variable "a" assigned value "None"
-12: validateInput called with args: 
-13: function call "validateInput" added as dependency of variable "a"
-14: system called with args: [variable "a"] 
-15: add called with args: [variable "a"] 
-16: system called with args: [variable "a"] 
-17: validateInput called with args: [variable "a"] 
-18: variable "b" declared
-19: variable "b" assigned value "None"
-20: variable "a" is added as dependency of "b"
-21: system called with args: [variable "b"] 
+1: add called with args: [constant "1"] [constant "2"] 
+2: add called with args: [constant "2"] [constant "3"] 
+3: add called with args: [constant "3"] [constant "4"] 

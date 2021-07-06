@@ -1,3 +1,4 @@
+from process.cond import evaluateCond
 import pycparser.c_ast as ast
 import process
 
@@ -9,15 +10,7 @@ def evaluateIf(ifBlock, state):
 
     cond = ifBlock.cond
 
-    if isinstance(cond, ast.BinaryOp):
-
-        if isinstance(cond.left, ast.FuncCall):
-
-            process.funccall.evaluateFuncCall(cond.left, state)
-
-    elif isinstance(cond, ast.FuncCall):
-
-        process.funcCall.evaluateFuncCall(cond, state)
+    evaluateCond(cond, state)
 
     iftrue = ifBlock.iftrue
 

@@ -5,6 +5,9 @@ from process.funccall import evaluateFuncCall
 from process.ret import evaluateReturn
 from process.ifblock import evaluateIf
 from process.assignment import evaluateAssignment
+from process.whileblock import evaluateWhile
+from process.dowhileblock import evaluateDoWhile
+from process.forblock import evaluateFor
 
 
 def evaluateCompound(compound, state):
@@ -28,3 +31,18 @@ def evaluateCompound(compound, state):
 
         elif isinstance(block, ast.If):
             evaluateIf(block, state)
+
+        elif isinstance(block, ast.While):
+            evaluateWhile(block, state)
+
+        elif isinstance(block, ast.While):
+            evaluateWhile(block, state)
+
+        elif isinstance(block, ast.While):
+            evaluateWhile(block, state)
+
+        elif isinstance(block, ast.DoWhile):
+            evaluateDoWhile(block, state)
+
+        elif isinstance(block, ast.For):
+            evaluateFor(block, state)
