@@ -45,5 +45,3 @@ def evaluateDecl(decl, state):
         var.setValue(value)
         state.addToLog(
             "variable \"{}\" set to value {}".format(var.name, value))
-
-    return var

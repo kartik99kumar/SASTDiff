@@ -11,8 +11,7 @@ def evaluateFuncDef(funcDef):
 
         args = funcDef.decl.type.args.params
         for arg in args:
-            var = process.decl.evaluateDecl(arg, state)
-            state.addArg(var)
+            process.decl.evaluateDecl(arg, state)
 
     body = funcDef.body
 
