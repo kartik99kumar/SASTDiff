@@ -23,6 +23,7 @@ def evaluateFuncCall(funcCall, state):
     call = Call(funcname, coord)
 
     log = "{} called with args: ".format(funcname)
+    alog = ""
 
     if args is not None:
 
@@ -41,17 +42,22 @@ def evaluateFuncCall(funcCall, state):
 
                 if svar is None:
                     svar = Variable(name)
+                    state.addVariable(svar)
 
                 if funcname in inputFunctions:
                     svar.setAsInput()
+                    alog += "\"{}\" set as Input\n".format(name)
+
                 elif funcname in validationFunctions:
                     svar.setValidation()
+                    alog += "\"{}\" validation set\n".format(name)
 
                 var = copy.deepcopy(svar)
                 call.addArg(var)
 
                 if funcname not in validationFunctions:
                     svar.resetValidation()
+                    alog += "\"{}\" validation reset\n".format(name)
 
                 log += "[variable \"{}\"] ".format(name)
 
@@ -61,14 +67,18 @@ def evaluateFuncCall(funcCall, state):
 
                 if funcname in inputFunctions:
                     field.setAsInput()
+                    alog += "\"{}\" set as Input\n".format(field.name)
+
                 elif funcname in validationFunctions:
                     field.setValidation()
+                    alog += "\"{}\" validation set\n".format(field.name)
 
                 var = copy.deepcopy(field)
                 call.addArg(var)
 
                 if funcname not in validationFunctions:
                     field.resetValidation()
+                    alog += "\"{}\" validation reset\n".format(field.name)
 
                 log += "[variable \"{}\"] ".format(field.name)
 
@@ -79,17 +89,22 @@ def evaluateFuncCall(funcCall, state):
 
                 if svar is None:
                     svar = Variable(name)
+                    state.addVariable(svar)
 
                 if funcname in inputFunctions:
                     svar.setAsInput()
+                    alog += "\"{}\" set as Input\n".format(name)
+
                 elif funcname in validationFunctions:
                     svar.setValidation()
+                    alog += "\"{}\" validation set\n".format(name)
 
                 var = copy.deepcopy(svar)
                 call.addArg(var)
 
                 if funcname not in validationFunctions:
                     svar.resetValidation()
+                    alog += "\"{}\" validation reset\n".format(name)
 
                 log += "[variable \"{}\"] ".format(name)
 
@@ -102,17 +117,22 @@ def evaluateFuncCall(funcCall, state):
 
                     if svar is None:
                         svar = Variable(name)
+                        state.addVariable(svar)
 
                     if funcname in inputFunctions:
                         svar.setAsInput()
+                        alog += "\"{}\" set as Input\n".format(name)
+
                     elif funcname in validationFunctions:
                         svar.setValidation()
+                        alog += "\"{}\" validation set\n".format(name)
 
                     var = copy.deepcopy(svar)
                     call.addArg(var)
 
                     if funcname not in validationFunctions:
                         svar.resetValidation()
+                        alog += "\"{}\" validation reset\n".format(name)
 
                     log += "[variable \"{}\"] ".format(name)
 
@@ -123,17 +143,22 @@ def evaluateFuncCall(funcCall, state):
 
                     if svar is None:
                         svar = Variable(name)
+                        state.addVariable(svar)
 
                     if funcname in inputFunctions:
                         svar.setAsInput()
+                        alog += "\"{}\" set as Input\n".format(name)
+
                     elif funcname in validationFunctions:
                         svar.setValidation()
+                        alog += "\"{}\" validation set\n".format(name)
 
                     var = copy.deepcopy(svar)
                     call.addArg(var)
 
                     if funcname not in validationFunctions:
                         svar.resetValidation()
+                        alog += "\"{}\" validation reset\n".format(name)
 
                     log += "[variable \"{}\"] ".format(name)
 
@@ -145,6 +170,7 @@ def evaluateFuncCall(funcCall, state):
                 log += "[flags] "
 
     state.addToLog(log)
+    state.addToLog(alog)
     evaluateModFunc(call, state)
     state.addCall(call)
 

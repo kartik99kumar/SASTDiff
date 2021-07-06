@@ -6,29 +6,36 @@ void test(){
     localaddr.sin_port = 0; 
 
     localaddr.sin_addr.s_addr = inet_addr("192.168.1.1");
-    bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
+    
+    if(bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr))<0){
+        exit(0);
+    }
 
     localaddr.sin_addr.s_addr = INADDR_ANY;
-    bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
+    
+    if(bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr))<0){
+        exit(0);
+    }
 
-    localaddr.sin_addr.s_addr = inet_addr(INADDR_ANY);
-    bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
-
-    localaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-    bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
-
-    localaddr.sin_addr.s_addr = "192.168.1.1";
-    bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
-
-    scanf("%s%s",a,b);
     gets(userInput);
-    fscanf(fp,"%s",a,b);
+    strcpy(fileName,userInput);
+    fscanf(fileName,"%s %s",s1,s2);
 
-    chmod("result/result.txt",S_IXOTH);
+    if(strlen(fileName)>0){
+        chmod(fileName,S_IXOTH);
+        chmod("result.txt",S_IXOTH);
+    }
 
-    char* userInput;
-    gets(userInput);
-    char* a;
-    strcpy(a,userInput);
-    system(a);
+    gets(userCommand);
+    strcpy(command,userCommand);
+
+    if(strlen(command)>0){
+        system(command);
+    }
+
+    validateInput(command);
+    if(1){
+        system(command);
+    }
+
 }

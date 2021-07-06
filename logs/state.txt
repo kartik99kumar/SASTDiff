@@ -2,12 +2,363 @@ args:
 
 variables: 
 
+	variable name: sockfd value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+	variable name: localaddr value: None
+	user input: False validation: False
+	variable fields: 
+
+		variable name: sin_family value: None
+		user input: False validation: False
+		variable fields: 
+
+		dependencies: ['AF_INET']
+
+		variable name: sin_port value: 0
+		user input: False validation: False
+		variable fields: 
+
+		dependencies: []
+
+		variable name: sin_addr value: None
+		user input: False validation: False
+		variable fields: 
+
+			variable name: s_addr value: None
+			user input: False validation: False
+			variable fields: 
+
+			dependencies: ['INADDR_ANY']
+
+		dependencies: []
+
+	dependencies: []
+
+	variable name: AF_INET value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+	variable name: INADDR_ANY value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+	variable name: userInput value: None
+	user input: True validation: False
+	variable fields: 
+
+	dependencies: []
+
+	variable name: fileName value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: ['userInput']
+
+	variable name: s1 value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+	variable name: s2 value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+	variable name: S_IXOTH value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+	variable name: userCommand value: None
+	user input: True validation: False
+	variable fields: 
+
+	dependencies: []
+
+	variable name: command value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: ['userCommand']
+
 calls: 
 
-function name: add arguments: 
+function name: inet_addr arguments: 
 
-12function name: add arguments: 
+"192.168.1.1"function name: bind arguments: 
 
-23function name: add arguments: 
+	variable name: sockfd value: None
+	user input: False validation: False
+	variable fields: 
 
-34
+	dependencies: []
+
+	variable name: localaddr value: None
+	user input: False validation: False
+	variable fields: 
+
+		variable name: sin_family value: None
+		user input: False validation: False
+		variable fields: 
+
+		dependencies: ['AF_INET']
+
+		variable name: sin_port value: 0
+		user input: False validation: False
+		variable fields: 
+
+		dependencies: []
+
+		variable name: sin_addr value: None
+		user input: False validation: False
+		variable fields: 
+
+			variable name: s_addr value: None
+			user input: False validation: False
+			variable fields: 
+
+			dependencies: ['inet_addr']
+
+		dependencies: []
+
+	dependencies: []
+
+	variable name: localaddr value: None
+	user input: False validation: False
+	variable fields: 
+
+		variable name: sin_family value: None
+		user input: False validation: False
+		variable fields: 
+
+		dependencies: ['AF_INET']
+
+		variable name: sin_port value: 0
+		user input: False validation: False
+		variable fields: 
+
+		dependencies: []
+
+		variable name: sin_addr value: None
+		user input: False validation: False
+		variable fields: 
+
+			variable name: s_addr value: None
+			user input: False validation: False
+			variable fields: 
+
+			dependencies: ['inet_addr']
+
+		dependencies: []
+
+	dependencies: []
+
+function name: exit arguments: 
+
+0function name: bind arguments: 
+
+	variable name: sockfd value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+	variable name: localaddr value: None
+	user input: False validation: False
+	variable fields: 
+
+		variable name: sin_family value: None
+		user input: False validation: False
+		variable fields: 
+
+		dependencies: ['AF_INET']
+
+		variable name: sin_port value: 0
+		user input: False validation: False
+		variable fields: 
+
+		dependencies: []
+
+		variable name: sin_addr value: None
+		user input: False validation: False
+		variable fields: 
+
+			variable name: s_addr value: None
+			user input: False validation: False
+			variable fields: 
+
+			dependencies: ['INADDR_ANY']
+
+		dependencies: []
+
+	dependencies: []
+
+	variable name: localaddr value: None
+	user input: False validation: False
+	variable fields: 
+
+		variable name: sin_family value: None
+		user input: False validation: False
+		variable fields: 
+
+		dependencies: ['AF_INET']
+
+		variable name: sin_port value: 0
+		user input: False validation: False
+		variable fields: 
+
+		dependencies: []
+
+		variable name: sin_addr value: None
+		user input: False validation: False
+		variable fields: 
+
+			variable name: s_addr value: None
+			user input: False validation: False
+			variable fields: 
+
+			dependencies: ['INADDR_ANY']
+
+		dependencies: []
+
+	dependencies: []
+
+function name: exit arguments: 
+
+0function name: gets arguments: 
+
+	variable name: userInput value: None
+	user input: True validation: False
+	variable fields: 
+
+	dependencies: []
+
+function name: strcpy arguments: 
+
+	variable name: fileName value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+	variable name: userInput value: None
+	user input: True validation: False
+	variable fields: 
+
+	dependencies: []
+
+function name: fscanf arguments: 
+
+	variable name: fileName value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: ['userInput']
+
+"%s %s"	variable name: s1 value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+	variable name: s2 value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+function name: strlen arguments: 
+
+	variable name: fileName value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: ['userInput']
+
+function name: chmod arguments: 
+
+	variable name: fileName value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: ['userInput']
+
+	variable name: S_IXOTH value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+function name: chmod arguments: 
+
+"result.txt"	variable name: S_IXOTH value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+function name: gets arguments: 
+
+	variable name: userCommand value: None
+	user input: True validation: False
+	variable fields: 
+
+	dependencies: []
+
+function name: strcpy arguments: 
+
+	variable name: command value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: []
+
+	variable name: userCommand value: None
+	user input: True validation: False
+	variable fields: 
+
+	dependencies: []
+
+function name: strlen arguments: 
+
+	variable name: command value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: ['userCommand']
+
+function name: system arguments: 
+
+	variable name: command value: None
+	user input: False validation: False
+	variable fields: 
+
+	dependencies: ['userCommand']
+
+function name: validateInput arguments: 
+
+	variable name: command value: None
+	user input: False validation: True
+	variable fields: 
+
+	dependencies: ['userCommand']
+
+function name: system arguments: 
+
+	variable name: command value: None
+	user input: False validation: True
+	variable fields: 
+
+	dependencies: ['userCommand']
+

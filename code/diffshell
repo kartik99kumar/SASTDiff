@@ -4,6 +4,7 @@ void test(){
     gets(userInput);
     char* a;
     strcpy(a,userInput);
-    system(a);
-    
+    if(1){
+        system(a);
+    }
 }

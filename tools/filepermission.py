@@ -22,6 +22,12 @@ def evaluateBadFilePermission(state):
                 flags = []
                 flags.append(args[1])
 
+            filename = ""
+            if isinstance(args[0], str):
+                filename = args[0]
+            elif isinstance(args[0], Variable):
+                filename = args[0].name
+
             for arg in flags:
 
                 if isinstance(arg, Variable):
@@ -29,28 +35,28 @@ def evaluateBadFilePermission(state):
                     if arg.name == "S_IWGRP":
 
                         message = "file permission of {} changed to write by group".format(
-                            args[0])
+                            filename)
                         warning = Warning(coord, message, type)
                         warnings.append(warning)
 
                     elif arg.name == "S_IXGRP":
 
                         message = "file permission of {} changed to execute by group".format(
-                            args[0])
+                            filename)
                         warning = Warning(coord, message, type)
                         warnings.append(warning)
 
                     elif arg.name == "S_IWOTH":
 
                         message = "file permission of {} changed to write by others".format(
-                            args[0])
+                            filename)
                         warning = Warning(coord, message, type)
                         warnings.append(warning)
 
                     elif arg.name == "S_IXOTH":
 
                         message = "file permission of {} changed to execute by others".format(
-                            args[0])
+                            filename)
                         warning = Warning(coord, message, type)
                         warnings.append(warning)
 

@@ -1,3 +1,74 @@
-1: add called with args: [constant "1"] [constant "2"] 
-2: add called with args: [constant "2"] [constant "3"] 
-3: add called with args: [constant "3"] [constant "4"] 
+1: variable "sockfd" declared
+2: variable "localaddr" of structure "sockaddr_in" declared
+3: sin_family added as field of localaddr
+4: variable "sin_family" assigned value "None"
+5: variable "AF_INET" is added as dependency of "sin_family"
+6: sin_port added as field of localaddr
+7: variable "sin_port" assigned value "0"
+8: sin_addr added as field of localaddr
+9: s_addr added as field of sin_addr
+10: variable "s_addr" assigned value "None"
+11: inet_addr called with args: [constant ""192.168.1.1""] 
+12: 
+13: function call "inet_addr" added as dependency of variable "s_addr"
+14: bind called with args: [variable "sockfd"] [variable "localaddr"] [variable "localaddr"] 
+15: "sockfd" validation reset
+"localaddr" validation reset
+"localaddr" validation reset
+
+16: exit called with args: [constant "0"] 
+17: 
+18: variable "s_addr" assigned value "None"
+19: variable "INADDR_ANY" is added as dependency of "s_addr"
+20: bind called with args: [variable "sockfd"] [variable "localaddr"] [variable "localaddr"] 
+21: "sockfd" validation reset
+"localaddr" validation reset
+"localaddr" validation reset
+
+22: exit called with args: [constant "0"] 
+23: 
+24: gets called with args: [variable "userInput"] 
+25: "userInput" set as Input
+"userInput" validation reset
+
+26: strcpy called with args: [variable "fileName"] [variable "userInput"] 
+27: "fileName" validation reset
+"userInput" validation reset
+
+28: "userInput" added as dependency of "fileName"
+29: fscanf called with args: [variable "fileName"] [constant ""%s %s""] [variable "s1"] [variable "s2"] 
+30: "fileName" validation reset
+"s1" validation reset
+"s2" validation reset
+
+31: strlen called with args: [variable "fileName"] 
+32: "fileName" validation reset
+
+33: chmod called with args: [variable "fileName"] [variable "S_IXOTH"] 
+34: "fileName" validation reset
+"S_IXOTH" validation reset
+
+35: chmod called with args: [constant ""result.txt""] [variable "S_IXOTH"] 
+36: "S_IXOTH" validation reset
+
+37: gets called with args: [variable "userCommand"] 
+38: "userCommand" set as Input
+"userCommand" validation reset
+
+39: strcpy called with args: [variable "command"] [variable "userCommand"] 
+40: "command" validation reset
+"userCommand" validation reset
+
+41: "userCommand" added as dependency of "command"
+42: strlen called with args: [variable "command"] 
+43: "command" validation reset
+
+44: system called with args: [variable "command"] 
+45: "command" validation reset
+
+46: validateInput called with args: [variable "command"] 
+47: "command" validation set
+
+48: system called with args: [variable "command"] 
+49: "command" validation reset
+

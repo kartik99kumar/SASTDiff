@@ -32,6 +32,13 @@ def evaluateShell(state):
                     warning = Warning(coord, message, type)
                     warnings.append(warning)
 
+                elif arg.isValidated == True:
+
+                    message = "command argument \"{}\" is validated. Ensure proper validation.".format(
+                        arg.name)
+                    warning = Warning(coord, message, type)
+                    warnings.append(warning)
+
                 else:
 
                     deps = arg.getDependency()
