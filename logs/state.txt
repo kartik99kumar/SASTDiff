@@ -1,364 +1,569 @@
-args: 
+==============================
 
-variables: 
+==============================
 
-	variable name: sockfd value: None
-	user input: False validation: False
-	variable fields: 
+	==============================
 
-	dependencies: []
+	==============================
 
-	variable name: localaddr value: None
-	user input: False validation: False
-	variable fields: 
+		==============================
 
-		variable name: sin_family value: None
-		user input: False validation: False
-		variable fields: 
+		variables: 
 
-		dependencies: ['AF_INET']
+			variable name: sockfd value: None
+			user input: False validation: False
+			dependencies: []
 
-		variable name: sin_port value: 0
-		user input: False validation: False
-		variable fields: 
-
-		dependencies: []
-
-		variable name: sin_addr value: None
-		user input: False validation: False
-		variable fields: 
-
-			variable name: s_addr value: None
+			variable name: localaddr value: None
 			user input: False validation: False
 			variable fields: 
 
-			dependencies: ['INADDR_ANY']
+				variable name: sin_family value: None
+				user input: False validation: False
+				dependencies: ['AF_INET']
 
-		dependencies: []
+				variable name: sin_port value: 0
+				user input: False validation: False
+				dependencies: []
 
-	dependencies: []
+				variable name: sin_addr value: None
+				user input: False validation: False
+				variable fields: 
 
-	variable name: AF_INET value: None
-	user input: False validation: False
-	variable fields: 
+					variable name: s_addr value: "192.168.1.1"
+					user input: False validation: False
+					dependencies: ['htonl']
 
-	dependencies: []
+				dependencies: []
 
-	variable name: INADDR_ANY value: None
-	user input: False validation: False
-	variable fields: 
+			dependencies: []
 
-	dependencies: []
-
-	variable name: userInput value: None
-	user input: True validation: False
-	variable fields: 
-
-	dependencies: []
-
-	variable name: fileName value: None
-	user input: False validation: False
-	variable fields: 
-
-	dependencies: ['userInput']
-
-	variable name: s1 value: None
-	user input: False validation: False
-	variable fields: 
-
-	dependencies: []
-
-	variable name: s2 value: None
-	user input: False validation: False
-	variable fields: 
-
-	dependencies: []
-
-	variable name: S_IXOTH value: None
-	user input: False validation: False
-	variable fields: 
-
-	dependencies: []
-
-	variable name: userCommand value: None
-	user input: True validation: False
-	variable fields: 
-
-	dependencies: []
-
-	variable name: command value: None
-	user input: False validation: False
-	variable fields: 
-
-	dependencies: ['userCommand']
-
-calls: 
-
-function name: inet_addr arguments: 
-
-"192.168.1.1"function name: bind arguments: 
-
-	variable name: sockfd value: None
-	user input: False validation: False
-	variable fields: 
-
-	dependencies: []
-
-	variable name: localaddr value: None
-	user input: False validation: False
-	variable fields: 
-
-		variable name: sin_family value: None
-		user input: False validation: False
-		variable fields: 
-
-		dependencies: ['AF_INET']
-
-		variable name: sin_port value: 0
-		user input: False validation: False
-		variable fields: 
-
-		dependencies: []
-
-		variable name: sin_addr value: None
-		user input: False validation: False
-		variable fields: 
-
-			variable name: s_addr value: None
+			variable name: AF_INET value: None
 			user input: False validation: False
-			variable fields: 
+			dependencies: []
 
-			dependencies: ['inet_addr']
+		calls: 
 
-		dependencies: []
+			function name: inet_addr arguments: 
 
-	dependencies: []
+				"192.168.1.1"
+			function name: bind arguments: 
 
-	variable name: localaddr value: None
-	user input: False validation: False
-	variable fields: 
+				variable name: sockfd value: None
+				user input: False validation: False
+				dependencies: []
 
-		variable name: sin_family value: None
-		user input: False validation: False
-		variable fields: 
+				variable name: localaddr value: None
+				user input: False validation: False
+				variable fields: 
 
-		dependencies: ['AF_INET']
+					variable name: sin_family value: None
+					user input: False validation: False
+					dependencies: ['AF_INET']
 
-		variable name: sin_port value: 0
-		user input: False validation: False
-		variable fields: 
+					variable name: sin_port value: 0
+					user input: False validation: False
+					dependencies: []
 
-		dependencies: []
+					variable name: sin_addr value: None
+					user input: False validation: False
+					variable fields: 
 
-		variable name: sin_addr value: None
-		user input: False validation: False
-		variable fields: 
+						variable name: s_addr value: None
+						user input: False validation: False
+						dependencies: ['inet_addr']
 
-			variable name: s_addr value: None
-			user input: False validation: False
-			variable fields: 
+					dependencies: []
 
-			dependencies: ['inet_addr']
+				dependencies: []
 
-		dependencies: []
+				variable name: localaddr value: None
+				user input: False validation: False
+				variable fields: 
 
-	dependencies: []
+					variable name: sin_family value: None
+					user input: False validation: False
+					dependencies: ['AF_INET']
 
-function name: exit arguments: 
+					variable name: sin_port value: 0
+					user input: False validation: False
+					dependencies: []
 
-0function name: bind arguments: 
+					variable name: sin_addr value: None
+					user input: False validation: False
+					variable fields: 
 
-	variable name: sockfd value: None
-	user input: False validation: False
-	variable fields: 
+						variable name: s_addr value: None
+						user input: False validation: False
+						dependencies: ['inet_addr']
 
-	dependencies: []
+					dependencies: []
 
-	variable name: localaddr value: None
-	user input: False validation: False
-	variable fields: 
+				dependencies: []
 
-		variable name: sin_family value: None
-		user input: False validation: False
-		variable fields: 
+			function name: bind arguments: 
 
-		dependencies: ['AF_INET']
+				variable name: sockfd value: None
+				user input: False validation: False
+				dependencies: []
 
-		variable name: sin_port value: 0
-		user input: False validation: False
-		variable fields: 
+				variable name: localaddr value: None
+				user input: False validation: False
+				variable fields: 
 
-		dependencies: []
+					variable name: sin_family value: None
+					user input: False validation: False
+					dependencies: ['AF_INET']
 
-		variable name: sin_addr value: None
-		user input: False validation: False
-		variable fields: 
+					variable name: sin_port value: 0
+					user input: False validation: False
+					dependencies: []
 
-			variable name: s_addr value: None
-			user input: False validation: False
-			variable fields: 
+					variable name: sin_addr value: None
+					user input: False validation: False
+					variable fields: 
 
-			dependencies: ['INADDR_ANY']
+						variable name: s_addr value: "192.168.1.1"
+						user input: False validation: False
+						dependencies: ['htonl']
 
-		dependencies: []
+					dependencies: []
 
-	dependencies: []
+				dependencies: []
 
-	variable name: localaddr value: None
-	user input: False validation: False
-	variable fields: 
+				variable name: localaddr value: None
+				user input: False validation: False
+				variable fields: 
 
-		variable name: sin_family value: None
-		user input: False validation: False
-		variable fields: 
+					variable name: sin_family value: None
+					user input: False validation: False
+					dependencies: ['AF_INET']
 
-		dependencies: ['AF_INET']
+					variable name: sin_port value: 0
+					user input: False validation: False
+					dependencies: []
 
-		variable name: sin_port value: 0
-		user input: False validation: False
-		variable fields: 
+					variable name: sin_addr value: None
+					user input: False validation: False
+					variable fields: 
 
-		dependencies: []
+						variable name: s_addr value: "192.168.1.1"
+						user input: False validation: False
+						dependencies: ['htonl']
 
-		variable name: sin_addr value: None
-		user input: False validation: False
-		variable fields: 
+					dependencies: []
 
-			variable name: s_addr value: None
-			user input: False validation: False
-			variable fields: 
+				dependencies: []
 
-			dependencies: ['INADDR_ANY']
+		==============================
 
-		dependencies: []
+			==============================
 
-	dependencies: []
+			variables: 
 
-function name: exit arguments: 
+				variable name: sockfd value: None
+				user input: False validation: False
+				dependencies: []
 
-0function name: gets arguments: 
+				variable name: localaddr value: None
+				user input: False validation: False
+				variable fields: 
 
-	variable name: userInput value: None
-	user input: True validation: False
-	variable fields: 
+					variable name: sin_family value: None
+					user input: False validation: False
+					dependencies: ['AF_INET']
 
-	dependencies: []
+					variable name: sin_port value: 0
+					user input: False validation: False
+					dependencies: []
 
-function name: strcpy arguments: 
+					variable name: sin_addr value: None
+					user input: False validation: False
+					variable fields: 
 
-	variable name: fileName value: None
-	user input: False validation: False
-	variable fields: 
+						variable name: s_addr value: "192.168.1.1"
+						user input: False validation: False
+						dependencies: ['htonl']
 
-	dependencies: []
+					dependencies: []
 
-	variable name: userInput value: None
-	user input: True validation: False
-	variable fields: 
+				dependencies: []
 
-	dependencies: []
+				variable name: AF_INET value: None
+				user input: False validation: False
+				dependencies: []
 
-function name: fscanf arguments: 
+				variable name: INADDR_ANY value: None
+				user input: False validation: False
+				dependencies: []
 
-	variable name: fileName value: None
-	user input: False validation: False
-	variable fields: 
+			calls: 
 
-	dependencies: ['userInput']
+				function name: bind arguments: 
 
-"%s %s"	variable name: s1 value: None
-	user input: False validation: False
-	variable fields: 
+					variable name: sockfd value: None
+					user input: False validation: False
+					dependencies: []
 
-	dependencies: []
+					variable name: localaddr value: None
+					user input: False validation: False
+					variable fields: 
 
-	variable name: s2 value: None
-	user input: False validation: False
-	variable fields: 
+						variable name: sin_family value: None
+						user input: False validation: False
+						dependencies: ['AF_INET']
 
-	dependencies: []
+						variable name: sin_port value: 0
+						user input: False validation: False
+						dependencies: []
 
-function name: strlen arguments: 
+						variable name: sin_addr value: None
+						user input: False validation: False
+						variable fields: 
 
-	variable name: fileName value: None
-	user input: False validation: False
-	variable fields: 
+							variable name: s_addr value: None
+							user input: False validation: False
+							dependencies: ['INADDR_ANY']
 
-	dependencies: ['userInput']
+						dependencies: []
 
-function name: chmod arguments: 
+					dependencies: []
 
-	variable name: fileName value: None
-	user input: False validation: False
-	variable fields: 
+					variable name: localaddr value: None
+					user input: False validation: False
+					variable fields: 
 
-	dependencies: ['userInput']
+						variable name: sin_family value: None
+						user input: False validation: False
+						dependencies: ['AF_INET']
 
-	variable name: S_IXOTH value: None
-	user input: False validation: False
-	variable fields: 
+						variable name: sin_port value: 0
+						user input: False validation: False
+						dependencies: []
 
-	dependencies: []
+						variable name: sin_addr value: None
+						user input: False validation: False
+						variable fields: 
 
-function name: chmod arguments: 
+							variable name: s_addr value: None
+							user input: False validation: False
+							dependencies: ['INADDR_ANY']
 
-"result.txt"	variable name: S_IXOTH value: None
-	user input: False validation: False
-	variable fields: 
+						dependencies: []
 
-	dependencies: []
+					dependencies: []
 
-function name: gets arguments: 
+			==============================
 
-	variable name: userCommand value: None
-	user input: True validation: False
-	variable fields: 
+				==============================
 
-	dependencies: []
+				variables: 
 
-function name: strcpy arguments: 
+					variable name: sockfd value: None
+					user input: False validation: False
+					dependencies: []
 
-	variable name: command value: None
-	user input: False validation: False
-	variable fields: 
+					variable name: localaddr value: None
+					user input: False validation: False
+					variable fields: 
 
-	dependencies: []
+						variable name: sin_family value: None
+						user input: False validation: False
+						dependencies: ['AF_INET']
 
-	variable name: userCommand value: None
-	user input: True validation: False
-	variable fields: 
+						variable name: sin_port value: 0
+						user input: False validation: False
+						dependencies: []
 
-	dependencies: []
+						variable name: sin_addr value: None
+						user input: False validation: False
+						variable fields: 
 
-function name: strlen arguments: 
+							variable name: s_addr value: "192.168.1.1"
+							user input: False validation: False
+							dependencies: ['htonl']
 
-	variable name: command value: None
-	user input: False validation: False
-	variable fields: 
+						dependencies: []
 
-	dependencies: ['userCommand']
+					dependencies: []
 
-function name: system arguments: 
+					variable name: AF_INET value: None
+					user input: False validation: False
+					dependencies: []
 
-	variable name: command value: None
-	user input: False validation: False
-	variable fields: 
+					variable name: INADDR_ANY value: None
+					user input: False validation: False
+					dependencies: []
 
-	dependencies: ['userCommand']
+				calls: 
 
-function name: validateInput arguments: 
+					function name: inet_addr arguments: 
 
-	variable name: command value: None
-	user input: False validation: True
-	variable fields: 
+						variable name: INADDR_ANY value: None
+						user input: False validation: False
+						dependencies: []
 
-	dependencies: ['userCommand']
+					function name: bind arguments: 
 
-function name: system arguments: 
+						variable name: sockfd value: None
+						user input: False validation: False
+						dependencies: []
 
-	variable name: command value: None
-	user input: False validation: True
-	variable fields: 
+						variable name: localaddr value: None
+						user input: False validation: False
+						variable fields: 
 
-	dependencies: ['userCommand']
+							variable name: sin_family value: None
+							user input: False validation: False
+							dependencies: ['AF_INET']
+
+							variable name: sin_port value: 0
+							user input: False validation: False
+							dependencies: []
+
+							variable name: sin_addr value: None
+							user input: False validation: False
+							variable fields: 
+
+								variable name: s_addr value: None
+								user input: False validation: False
+								dependencies: ['inet_addr']
+
+							dependencies: []
+
+						dependencies: []
+
+						variable name: localaddr value: None
+						user input: False validation: False
+						variable fields: 
+
+							variable name: sin_family value: None
+							user input: False validation: False
+							dependencies: ['AF_INET']
+
+							variable name: sin_port value: 0
+							user input: False validation: False
+							dependencies: []
+
+							variable name: sin_addr value: None
+							user input: False validation: False
+							variable fields: 
+
+								variable name: s_addr value: None
+								user input: False validation: False
+								dependencies: ['inet_addr']
+
+							dependencies: []
+
+						dependencies: []
+
+					function name: bind arguments: 
+
+						variable name: sockfd value: None
+						user input: False validation: False
+						dependencies: []
+
+						variable name: localaddr value: None
+						user input: False validation: False
+						variable fields: 
+
+							variable name: sin_family value: None
+							user input: False validation: False
+							dependencies: ['AF_INET']
+
+							variable name: sin_port value: 0
+							user input: False validation: False
+							dependencies: []
+
+							variable name: sin_addr value: None
+							user input: False validation: False
+							variable fields: 
+
+								variable name: s_addr value: "192.168.1.1"
+								user input: False validation: False
+								dependencies: ['htonl']
+
+							dependencies: []
+
+						dependencies: []
+
+						variable name: localaddr value: None
+						user input: False validation: False
+						variable fields: 
+
+							variable name: sin_family value: None
+							user input: False validation: False
+							dependencies: ['AF_INET']
+
+							variable name: sin_port value: 0
+							user input: False validation: False
+							dependencies: []
+
+							variable name: sin_addr value: None
+							user input: False validation: False
+							variable fields: 
+
+								variable name: s_addr value: "192.168.1.1"
+								user input: False validation: False
+								dependencies: ['htonl']
+
+							dependencies: []
+
+						dependencies: []
+
+				==============================
+
+					==============================
+
+					variables: 
+
+						variable name: sockfd value: None
+						user input: False validation: False
+						dependencies: []
+
+						variable name: localaddr value: None
+						user input: False validation: False
+						variable fields: 
+
+							variable name: sin_family value: None
+							user input: False validation: False
+							dependencies: ['AF_INET']
+
+							variable name: sin_port value: 0
+							user input: False validation: False
+							dependencies: []
+
+							variable name: sin_addr value: None
+							user input: False validation: False
+							variable fields: 
+
+								variable name: s_addr value: "192.168.1.1"
+								user input: False validation: False
+								dependencies: ['htonl']
+
+							dependencies: []
+
+						dependencies: []
+
+						variable name: AF_INET value: None
+						user input: False validation: False
+						dependencies: []
+
+						variable name: INADDR_ANY value: None
+						user input: False validation: False
+						dependencies: []
+
+					calls: 
+
+						function name: htonl arguments: 
+
+							variable name: INADDR_ANY value: None
+							user input: False validation: False
+							dependencies: []
+
+						function name: bind arguments: 
+
+							variable name: sockfd value: None
+							user input: False validation: False
+							dependencies: []
+
+							variable name: localaddr value: None
+							user input: False validation: False
+							variable fields: 
+
+								variable name: sin_family value: None
+								user input: False validation: False
+								dependencies: ['AF_INET']
+
+								variable name: sin_port value: 0
+								user input: False validation: False
+								dependencies: []
+
+								variable name: sin_addr value: None
+								user input: False validation: False
+								variable fields: 
+
+									variable name: s_addr value: None
+									user input: False validation: False
+									dependencies: ['htonl']
+
+								dependencies: []
+
+							dependencies: []
+
+							variable name: localaddr value: None
+							user input: False validation: False
+							variable fields: 
+
+								variable name: sin_family value: None
+								user input: False validation: False
+								dependencies: ['AF_INET']
+
+								variable name: sin_port value: 0
+								user input: False validation: False
+								dependencies: []
+
+								variable name: sin_addr value: None
+								user input: False validation: False
+								variable fields: 
+
+									variable name: s_addr value: None
+									user input: False validation: False
+									dependencies: ['htonl']
+
+								dependencies: []
+
+							dependencies: []
+
+					==============================
+
+			==============================
+
+			variables: 
+
+				variable name: sockfd value: None
+				user input: False validation: False
+				dependencies: []
+
+				variable name: localaddr value: None
+				user input: False validation: False
+				variable fields: 
+
+					variable name: sin_family value: None
+					user input: False validation: False
+					dependencies: ['AF_INET']
+
+					variable name: sin_port value: 0
+					user input: False validation: False
+					dependencies: []
+
+					variable name: sin_addr value: None
+					user input: False validation: False
+					variable fields: 
+
+						variable name: s_addr value: "192.168.1.1"
+						user input: False validation: False
+						dependencies: ['htonl']
+
+					dependencies: []
+
+				dependencies: []
+
+				variable name: AF_INET value: None
+				user input: False validation: False
+				dependencies: []
+
+				variable name: userInput value: None
+				user input: True validation: False
+				dependencies: []
+
+			calls: 
+
+				function name: gets arguments: 
+
+					variable name: userInput value: None
+					user input: True validation: False
+					dependencies: []
+
+			==============================
 

@@ -5,6 +5,43 @@ from tools.shell import evaluateShell
 from utils.table import makeTables
 from utils.astBuild import makeAST
 from process.funcdef import evaluateFuncDef
+from process.decl import evaluateDecl
+from structs.state import State
+from utils.data import logFile
+from utils.data import stateFile
+import datetime
+
+
+def evaluateState(state):
+
+    if not isinstance(state, State):
+        return
+
+    ws = []
+    ws.extend(evaluateShell(state))
+    ws.extend(evaluateBind(state))
+    ws.extend(evaluateBufferOverflow(state))
+    ws.extend(evaluateBadFilePermission(state))
+
+    for cstate in state.children:
+        ws.extend(evaluateState(cstate))
+
+    return ws
+
+
+def showState(state, tab):
+
+    if not isinstance(state, State):
+        return
+
+    state.show(tab, stateFile)
+
+    for cstate in state.children:
+        showState(cstate, tab+1)
+
+
+def getCoord(w):
+    return w.coord.line
 
 
 def evaluateCode(filename, mode):
@@ -12,29 +49,25 @@ def evaluateCode(filename, mode):
     root = makeAST(filename, mode)
     functions, structures, globalvars = makeTables(root)
 
-    file1 = open("logs/log.txt", "w")
-    file2 = open("logs/state.txt", "w")
-    file3 = open("result/result.txt", "w")
+    resultFile = open("result/result.txt", "w")
 
-    def getCoord(w):
-        return w.coord.line
+    logFile.write("log: {}\nfilename: {}\n\n".format(
+        datetime.datetime.now(), filename))
+
+    globalState = State()
+
+    for var in globalvars:
+        evaluateDecl(globalvars[var], globalState)
 
     for func in functions:
+        evaluateFuncDef(functions[func], globalState)
 
-        fs = evaluateFuncDef(functions[func])
+    ws = evaluateState(globalState)
+    ws.sort(key=getCoord)
 
-        fs.showLog(file1)
-        fs.show(file2)
+    for w in ws:
+        w.show(resultFile)
 
-        ws = []
-        ws.extend(evaluateShell(fs))
-        ws.extend(evaluateBind(fs))
-        ws.extend(evaluateBufferOverflow(fs))
-        ws.extend(evaluateBadFilePermission(fs))
-
-        ws.sort(key=getCoord)
-
-        for w in ws:
-            w.show(file3)
+    showState(globalState, 0)
 
     print("Analysis Complete. Results in result/result.txt")

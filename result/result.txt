@@ -1,33 +1,21 @@
-code/diff:10:8: binding to unwanted interfaces warning: 
+code/diffif:10:8: binding to unwanted interfaces warning: 
 	Binding to address "192.168.1.1" is not allowed. Use allowed addresses for binding.
 
-code/diff:16:8: binding to unwanted interfaces warning: 
+code/diffif:14:12: binding to unwanted interfaces warning: 
 	Binding using INADDR_ANY is vulnerable. Use allowed addresses for binding.
 
-code/diff:20:5: buffer overflow warning: 
+code/diffif:18:16: binding to unwanted interfaces warning: 
+	Binding using INADDR_ANY is vulnerable. Use allowed addresses for binding.
+
+code/diffif:20:17: binding to unwanted interfaces warning: 
+	Binding using INADDR_ANY is vulnerable. Use allowed addresses for binding.
+
+code/diffif:24:13: binding to unwanted interfaces warning: 
+	Binding to address "192.168.1.1" is not allowed. Use allowed addresses for binding.
+
+code/diffif:28:13: binding to unwanted interfaces warning: 
+	Binding to address "192.168.1.1" is not allowed. Use allowed addresses for binding.
+
+code/diffif:31:9: buffer overflow warning: 
 	"gets" is vulnerable to buffer overflow. Use "gets_s" in place of "gets"
-
-code/diff:21:5: buffer overflow warning: 
-	"strcpy" is vulnerable to buffer overflow. "strncpy" is a safer alternative.
-
-code/diff:22:5: buffer overflow warning: 
-	"fscanf" is vulnerable to buffer overflow. Use "%9s" for example in place of "%s". 
-
-code/diff:25:9: bad file permission warning: 
-	file permission of fileName changed to execute by others
-
-code/diff:26:9: bad file permission warning: 
-	file permission of "result.txt" changed to execute by others
-
-code/diff:29:5: buffer overflow warning: 
-	"gets" is vulnerable to buffer overflow. Use "gets_s" in place of "gets"
-
-code/diff:30:5: buffer overflow warning: 
-	"strcpy" is vulnerable to buffer overflow. "strncpy" is a safer alternative.
-
-code/diff:33:9: shell injection vulnerability warning: 
-	command argument "command" has direct/indirect dependency on user input "userCommand"
-
-code/diff:38:9: shell injection vulnerability warning: 
-	command argument "command" is validated. Ensure proper validation.
 

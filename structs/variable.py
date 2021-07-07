@@ -59,9 +59,12 @@ class Variable:
             tab*"\t", self.name, self.value)
         varstr += "{}user input: {} validation: {}\n".format(
             tab*"\t", self.isInput, self.isValidated)
-        varstr += "{}variable fields: \n\n".format(tab*"\t")
+
+        if len(self.fields) > 0:
+            varstr += "{}variable fields: \n\n".format(tab*"\t")
         for field in self.fields:
             varstr += self.fields[field].show(tab+1)
+
         deps = self.getDependency()
         varstr += "{}dependencies: {}\n".format(tab*"\t", list(deps.keys()))
         varstr += "\n"

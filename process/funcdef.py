@@ -3,9 +3,10 @@ import process
 import process.compound
 
 
-def evaluateFuncDef(funcDef):
+def evaluateFuncDef(funcDef, parentState):
 
     state = State()
+    state.addStateVariables(parentState)
 
     if funcDef.decl.type.args is not None:
 
@@ -17,4 +18,4 @@ def evaluateFuncDef(funcDef):
 
     process.compound.evaluateCompound(body, state)
 
-    return state
+    parentState.addChild(state)

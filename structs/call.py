@@ -11,14 +11,14 @@ class Call:
     def addArg(self, arg):
         self.args.append(arg)
 
-    def show(self):
+    def show(self, tab=0):
 
-        callstr = ""
-        callstr += "function name: {} arguments: \n\n".format(self.name)
+        callstr = "{}function name: {} arguments: \n\n".format(
+            tab*"\t", self.name)
         for arg in self.args:
             if isinstance(arg, Variable):
-                callstr += arg.show(1)
+                callstr += arg.show(tab+1)
             elif isinstance(arg, str):
-                callstr += arg
+                callstr += "{}{}\n".format((tab+1)*"\t", arg)
 
         return callstr

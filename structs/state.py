@@ -1,16 +1,19 @@
 from structs.variable import Variable
 from structs.call import Call
 import copy
+from utils.data import logFile
 
 
 class State:
 
     def __init__(self):
+
         self.variables = {}
         self.args = []
         self.log = []
         self.calls = []
         self.logCoord = None
+        self.children = []
 
     def addVariable(self, variable):
 
@@ -55,18 +58,19 @@ class State:
 
     def addToLog(self, log):
         self.log.append("{}: {}".format(self.logCoord, log))
+        logFile.write("{}: {}\n".format(self.logCoord, log))
 
     def setLogCoord(self, coord):
         self.logCoord = coord
 
     def showLog(self, file=None):
         if file is None:
-            for i, l in enumerate(self.log):
-                print("{}: {}".format(i+1, l))
+            for l in self.log:
+                print(l)
         else:
             log = ""
-            for i, l in enumerate(self.log):
-                log += "{}: {}\n".format(i+1, l)
+            for l in self.log:
+                log += "{}\n".format(l)
             file.write(log)
 
     def snapshot(self):
@@ -74,20 +78,40 @@ class State:
         s = copy.deepcopy(self)
         return s
 
-    def show(self, file=None):
+    def show(self, tab=0, file=None):
 
-        statestr = ""
-        statestr += "args: \n\n"
+        statestr = "{}==============================\n\n".format(tab*"\t")
+        if len(self.args) > 0:
+            statestr += "{}args: \n\n".format(tab*"\t")
         for arg in self.args:
-            statestr += arg.show(1)
-        statestr += "variables: \n\n"
+            statestr += arg.show(tab+1)
+
+        if len(self.variables) > 0:
+            statestr += "{}variables: \n\n".format(tab*"\t")
         for var in self.variables:
-            statestr += self.variables[var].show(1)
-        statestr += "calls: \n\n"
+            statestr += self.variables[var].show(tab+1)
+
+        if len(self.calls) > 0:
+            statestr += "{}calls: \n\n".format(tab*"\t")
         for call in self.calls:
-            statestr += call.show()
+            statestr += call.show(tab+1)
+
+        statestr += "{}==============================\n\n".format(tab*"\t")
 
         if file is None:
             return statestr
         else:
             file.write(statestr)
+
+    def addStateVariables(self, state):
+
+        if not isinstance(state, State):
+            return
+
+        for varName in state.variables:
+            self.addVariable(state.variables[varName])
+
+    def addChild(self, childState):
+
+        if isinstance(childState, State):
+            self.children.append(childState)

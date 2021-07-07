@@ -14,10 +14,11 @@ void test(){
         if(bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr))==-1){
             
             localaddr.sin_addr.s_addr = inet_addr(INADDR_ANY);
-            bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
-
-            localaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-            bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
+            
+            if(bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr))==-1){
+                localaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+                bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));
+            }
 
             localaddr.sin_addr.s_addr = "192.168.1.1";
             bind(sockfd, (struct sockaddr *)&localaddr, sizeof(localaddr));

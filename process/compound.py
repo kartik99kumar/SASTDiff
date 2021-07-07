@@ -8,12 +8,17 @@ from process.assignment import evaluateAssignment
 from process.whileblock import evaluateWhile
 from process.dowhileblock import evaluateDoWhile
 from process.forblock import evaluateFor
+from structs.state import State
+from utils.data import logFile
 
 
-def evaluateCompound(compound, state):
+def evaluateCompound(compound, parentState):
 
     if not isinstance(compound, ast.Compound):
         return
+
+    state = State()
+    state.addStateVariables(parentState)
 
     for block in compound.block_items:
 
@@ -35,14 +40,10 @@ def evaluateCompound(compound, state):
         elif isinstance(block, ast.While):
             evaluateWhile(block, state)
 
-        elif isinstance(block, ast.While):
-            evaluateWhile(block, state)
-
-        elif isinstance(block, ast.While):
-            evaluateWhile(block, state)
-
         elif isinstance(block, ast.DoWhile):
             evaluateDoWhile(block, state)
 
         elif isinstance(block, ast.For):
             evaluateFor(block, state)
+
+    parentState.addChild(state)

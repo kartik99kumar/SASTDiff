@@ -44,7 +44,7 @@ def evaluateAssignment(assignment, state):
             state.addLog("variable \"{}\" added to state".format(var.name))
 
         var.setValue(value)
-        state.addLog("variable \"{}\" value set to {}".format(
+        state.addToLog("variable \"{}\" value set to {}".format(
             var.name, var.value))
 
         var.resetValidation()

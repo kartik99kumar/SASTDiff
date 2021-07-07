@@ -1,74 +1,100 @@
-1: variable "sockfd" declared
-2: variable "localaddr" of structure "sockaddr_in" declared
-3: sin_family added as field of localaddr
-4: variable "sin_family" assigned value "None"
-5: variable "AF_INET" is added as dependency of "sin_family"
-6: sin_port added as field of localaddr
-7: variable "sin_port" assigned value "0"
-8: sin_addr added as field of localaddr
-9: s_addr added as field of sin_addr
-10: variable "s_addr" assigned value "None"
-11: inet_addr called with args: [constant ""192.168.1.1""] 
-12: 
-13: function call "inet_addr" added as dependency of variable "s_addr"
-14: bind called with args: [variable "sockfd"] [variable "localaddr"] [variable "localaddr"] 
-15: "sockfd" validation reset
-"localaddr" validation reset
-"localaddr" validation reset
+log: 2021-07-07 13:24:52.038971
+filename: code/diffif
 
-16: exit called with args: [constant "0"] 
-17: 
-18: variable "s_addr" assigned value "None"
-19: variable "INADDR_ANY" is added as dependency of "s_addr"
-20: bind called with args: [variable "sockfd"] [variable "localaddr"] [variable "localaddr"] 
-21: "sockfd" validation reset
-"localaddr" validation reset
-"localaddr" validation reset
-
-22: exit called with args: [constant "0"] 
-23: 
-24: gets called with args: [variable "userInput"] 
-25: "userInput" set as Input
-"userInput" validation reset
-
-26: strcpy called with args: [variable "fileName"] [variable "userInput"] 
-27: "fileName" validation reset
-"userInput" validation reset
-
-28: "userInput" added as dependency of "fileName"
-29: fscanf called with args: [variable "fileName"] [constant ""%s %s""] [variable "s1"] [variable "s2"] 
-30: "fileName" validation reset
-"s1" validation reset
-"s2" validation reset
-
-31: strlen called with args: [variable "fileName"] 
-32: "fileName" validation reset
-
-33: chmod called with args: [variable "fileName"] [variable "S_IXOTH"] 
-34: "fileName" validation reset
-"S_IXOTH" validation reset
-
-35: chmod called with args: [constant ""result.txt""] [variable "S_IXOTH"] 
-36: "S_IXOTH" validation reset
-
-37: gets called with args: [variable "userCommand"] 
-38: "userCommand" set as Input
-"userCommand" validation reset
-
-39: strcpy called with args: [variable "command"] [variable "userCommand"] 
-40: "command" validation reset
-"userCommand" validation reset
-
-41: "userCommand" added as dependency of "command"
-42: strlen called with args: [variable "command"] 
-43: "command" validation reset
-
-44: system called with args: [variable "command"] 
-45: "command" validation reset
-
-46: validateInput called with args: [variable "command"] 
-47: "command" validation set
-
-48: system called with args: [variable "command"] 
-49: "command" validation reset
-
+code/diffif:3:9: variable "sockfd" added to state
+code/diffif:4:24: variable "localaddr" added to state
+code/diffif:5:5: "sin_family" added as field of "localaddr"
+code/diffif:5:5: variable "sin_family" value set to None
+code/diffif:5:5: variable "sin_family" validation reset
+code/diffif:5:5: variable "sin_family" dependency reset
+code/diffif:5:5: variable "AF_INET" added to state
+code/diffif:5:5: variable "AF_INET" is added as dependency of "sin_family"
+code/diffif:6:5: "sin_port" added as field of "localaddr"
+code/diffif:6:5: variable "sin_port" value set to 0
+code/diffif:6:5: variable "sin_port" validation reset
+code/diffif:8:5: "sin_addr" added as field of "localaddr"
+code/diffif:8:5: "s_addr" added as field of "sin_addr"
+code/diffif:8:5: variable "s_addr" value set to None
+code/diffif:8:5: variable "s_addr" validation reset
+code/diffif:8:33: function "inet_addr" called
+code/diffif:8:33: constant "192.168.1.1" added as argument
+code/diffif:8:33: call "inet_addr" added to state
+code/diffif:8:33: variable "s_addr" dependency reset
+code/diffif:8:33: call "inet_addr" added as dependency of "s_addr"
+code/diffif:10:8: function "bind" called
+code/diffif:10:8: variable "sockfd" copy added as argument
+code/diffif:10:8: variable "sockfd" validation reset
+code/diffif:10:8: variable "localaddr" copy added as argument
+code/diffif:10:8: variable "localaddr" validation reset
+code/diffif:10:8: variable "localaddr" copy added as argument
+code/diffif:10:8: variable "localaddr" validation reset
+code/diffif:10:8: call "bind" added to state
+code/diffif:12:9: variable "s_addr" value set to None
+code/diffif:12:9: variable "s_addr" validation reset
+code/diffif:12:9: variable "s_addr" dependency reset
+code/diffif:12:9: variable "INADDR_ANY" added to state
+code/diffif:12:9: variable "INADDR_ANY" is added as dependency of "s_addr"
+code/diffif:14:12: function "bind" called
+code/diffif:14:12: variable "sockfd" copy added as argument
+code/diffif:14:12: variable "sockfd" validation reset
+code/diffif:14:12: variable "localaddr" copy added as argument
+code/diffif:14:12: variable "localaddr" validation reset
+code/diffif:14:12: variable "localaddr" copy added as argument
+code/diffif:14:12: variable "localaddr" validation reset
+code/diffif:14:12: call "bind" added to state
+code/diffif:16:13: variable "s_addr" value set to None
+code/diffif:16:13: variable "s_addr" validation reset
+code/diffif:16:41: function "inet_addr" called
+code/diffif:16:41: variable "INADDR_ANY" copy added as argument
+code/diffif:16:41: variable "INADDR_ANY" validation reset
+code/diffif:16:41: call "inet_addr" added to state
+code/diffif:16:41: variable "s_addr" dependency reset
+code/diffif:16:41: call "inet_addr" added as dependency of "s_addr"
+code/diffif:18:16: function "bind" called
+code/diffif:18:16: variable "sockfd" copy added as argument
+code/diffif:18:16: variable "sockfd" validation reset
+code/diffif:18:16: variable "localaddr" copy added as argument
+code/diffif:18:16: variable "localaddr" validation reset
+code/diffif:18:16: variable "localaddr" copy added as argument
+code/diffif:18:16: variable "localaddr" validation reset
+code/diffif:18:16: call "bind" added to state
+code/diffif:19:17: variable "s_addr" value set to None
+code/diffif:19:17: variable "s_addr" validation reset
+code/diffif:19:45: function "htonl" called
+code/diffif:19:45: variable "INADDR_ANY" copy added as argument
+code/diffif:19:45: variable "INADDR_ANY" validation reset
+code/diffif:19:45: call "htonl" added to state
+code/diffif:19:45: variable "s_addr" dependency reset
+code/diffif:19:45: call "htonl" added as dependency of "s_addr"
+code/diffif:20:17: function "bind" called
+code/diffif:20:17: variable "sockfd" copy added as argument
+code/diffif:20:17: variable "sockfd" validation reset
+code/diffif:20:17: variable "localaddr" copy added as argument
+code/diffif:20:17: variable "localaddr" validation reset
+code/diffif:20:17: variable "localaddr" copy added as argument
+code/diffif:20:17: variable "localaddr" validation reset
+code/diffif:20:17: call "bind" added to state
+code/diffif:23:13: variable "s_addr" value set to "192.168.1.1"
+code/diffif:23:13: variable "s_addr" validation reset
+code/diffif:24:13: function "bind" called
+code/diffif:24:13: variable "sockfd" copy added as argument
+code/diffif:24:13: variable "sockfd" validation reset
+code/diffif:24:13: variable "localaddr" copy added as argument
+code/diffif:24:13: variable "localaddr" validation reset
+code/diffif:24:13: variable "localaddr" copy added as argument
+code/diffif:24:13: variable "localaddr" validation reset
+code/diffif:24:13: call "bind" added to state
+code/diffif:28:13: function "bind" called
+code/diffif:28:13: variable "sockfd" copy added as argument
+code/diffif:28:13: variable "sockfd" validation reset
+code/diffif:28:13: variable "localaddr" copy added as argument
+code/diffif:28:13: variable "localaddr" validation reset
+code/diffif:28:13: variable "localaddr" copy added as argument
+code/diffif:28:13: variable "localaddr" validation reset
+code/diffif:28:13: call "bind" added to state
+code/diffif:30:13: variable "userInput" added to state
+code/diffif:31:9: function "gets" called
+code/diffif:31:9: variable "userInput" set as input
+code/diffif:31:9: variable "userInput" copy added as argument
+code/diffif:31:9: variable "userInput" validation reset
+code/diffif:31:9: call "gets" added to state
