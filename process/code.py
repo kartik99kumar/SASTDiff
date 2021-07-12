@@ -6,6 +6,8 @@ from utils.table import makeTables
 from utils.astBuild import makeAST
 from process.funcdef import evaluateFuncDef
 from process.decl import evaluateDecl
+from tools.securepadding import evaluatePadding
+from tools.serverhostverify import evaluateHostVerify
 from structs.state import State
 from utils.data import logFile
 from utils.data import stateFile
@@ -22,6 +24,8 @@ def evaluateState(state):
     ws.extend(evaluateBind(state))
     ws.extend(evaluateBufferOverflow(state))
     ws.extend(evaluateBadFilePermission(state))
+    ws.extend(evaluatePadding(state))
+    ws.extend(evaluateHostVerify(state))
 
     for cstate in state.children:
         ws.extend(evaluateState(cstate))
@@ -51,7 +55,7 @@ def evaluateCode(filename, mode):
 
     resultFile = open("result/result.txt", "w")
 
-    logFile.write("log: {}\nfilename: {}\n\n".format(
+    logFile.write("\n\nlog: {}\nfilename: {}\n\n".format(
         datetime.datetime.now(), filename))
 
     globalState = State()
@@ -71,3 +75,5 @@ def evaluateCode(filename, mode):
     showState(globalState, 0)
 
     print("Analysis Complete. Results in result/result.txt")
+
+    resultFile.close()

@@ -38,4 +38,11 @@ void test(){
         system(command);
     }
 
+    RSA_public_decrypt(flen, from, to, key, RSA_PKCS1_PADDING); 
+    RSA_public_decrypt(flen, from, to, key, RSA_SSLV23_PADDING);
+    RSA_public_decrypt(flen, from, to, key, RSA_NO_PADDING);
+    SSL_connect(ssl1);
+    SSL_set1_host(ssl, HOST_NAME);
+    SSL_connect(ssl);
+
 }
