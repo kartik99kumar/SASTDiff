@@ -421,3 +421,503 @@ tmp/tmpcode:6:1: function "SSL_connect" called
 tmp/tmpcode:6:1: variable "ssl" copy added as argument
 tmp/tmpcode:6:1: variable "ssl" validation reset
 tmp/tmpcode:6:1: call "SSL_connect" added to state
+
+
+log: 2021-07-12 13:40:06.903811
+filename: code/diffssl
+
+tmp/tmpcode:1:14: function "RSA_public_decrypt" called
+tmp/tmpcode:1:14: variable "flen" added to state
+tmp/tmpcode:1:14: variable "flen" copy added as argument
+tmp/tmpcode:1:14: variable "flen" validation reset
+tmp/tmpcode:1:14: variable "from" added to state
+tmp/tmpcode:1:14: variable "from" copy added as argument
+tmp/tmpcode:1:14: variable "from" validation reset
+tmp/tmpcode:1:14: variable "to" added to state
+tmp/tmpcode:1:14: variable "to" copy added as argument
+tmp/tmpcode:1:14: variable "to" validation reset
+tmp/tmpcode:1:14: variable "key" added to state
+tmp/tmpcode:1:14: variable "key" copy added as argument
+tmp/tmpcode:1:14: variable "key" validation reset
+tmp/tmpcode:1:14: variable "RSA_PKCS1_PADDING" added to state
+tmp/tmpcode:1:14: variable "RSA_PKCS1_PADDING" copy added as argument
+tmp/tmpcode:1:14: variable "RSA_PKCS1_PADDING" validation reset
+tmp/tmpcode:1:14: call "RSA_public_decrypt" added to state
+tmp/tmpcode:2:1: function "RSA_public_decrypt" called
+tmp/tmpcode:2:1: variable "flen" copy added as argument
+tmp/tmpcode:2:1: variable "flen" validation reset
+tmp/tmpcode:2:1: variable "from" copy added as argument
+tmp/tmpcode:2:1: variable "from" validation reset
+tmp/tmpcode:2:1: variable "to" copy added as argument
+tmp/tmpcode:2:1: variable "to" validation reset
+tmp/tmpcode:2:1: variable "key" copy added as argument
+tmp/tmpcode:2:1: variable "key" validation reset
+tmp/tmpcode:2:1: variable "RSA_SSLV23_PADDING" added to state
+tmp/tmpcode:2:1: variable "RSA_SSLV23_PADDING" copy added as argument
+tmp/tmpcode:2:1: variable "RSA_SSLV23_PADDING" validation reset
+tmp/tmpcode:2:1: call "RSA_public_decrypt" added to state
+tmp/tmpcode:3:1: function "RSA_public_decrypt" called
+tmp/tmpcode:3:1: variable "flen" copy added as argument
+tmp/tmpcode:3:1: variable "flen" validation reset
+tmp/tmpcode:3:1: variable "from" copy added as argument
+tmp/tmpcode:3:1: variable "from" validation reset
+tmp/tmpcode:3:1: variable "to" copy added as argument
+tmp/tmpcode:3:1: variable "to" validation reset
+tmp/tmpcode:3:1: variable "key" copy added as argument
+tmp/tmpcode:3:1: variable "key" validation reset
+tmp/tmpcode:3:1: variable "RSA_NO_PADDING" added to state
+tmp/tmpcode:3:1: variable "RSA_NO_PADDING" copy added as argument
+tmp/tmpcode:3:1: variable "RSA_NO_PADDING" validation reset
+tmp/tmpcode:3:1: call "RSA_public_decrypt" added to state
+tmp/tmpcode:4:1: function "SSL_connect" called
+tmp/tmpcode:4:1: variable "ssl1" added to state
+tmp/tmpcode:4:1: variable "ssl1" copy added as argument
+tmp/tmpcode:4:1: variable "ssl1" validation reset
+tmp/tmpcode:4:1: call "SSL_connect" added to state
+tmp/tmpcode:5:1: function "SSL_set1_host" called
+tmp/tmpcode:5:1: variable "ssl" added to state
+tmp/tmpcode:5:1: variable "ssl" copy added as argument
+tmp/tmpcode:5:1: variable "ssl" validation reset
+tmp/tmpcode:5:1: variable "HOST_NAME" added to state
+tmp/tmpcode:5:1: variable "HOST_NAME" copy added as argument
+tmp/tmpcode:5:1: variable "HOST_NAME" validation reset
+tmp/tmpcode:5:1: call "SSL_set1_host" added to state
+tmp/tmpcode:6:1: function "SSL_connect" called
+tmp/tmpcode:6:1: variable "ssl" copy added as argument
+tmp/tmpcode:6:1: variable "ssl" validation reset
+tmp/tmpcode:6:1: call "SSL_connect" added to state
+tmp/tmpcode:8:1: function "SSL_CTX_set_verify" called
+tmp/tmpcode:8:1: variable "ctx" added to state
+tmp/tmpcode:8:1: variable "ctx" copy added as argument
+tmp/tmpcode:8:1: variable "ctx" validation reset
+tmp/tmpcode:8:1: variable "SSL_VERIFY_NONE" added to state
+tmp/tmpcode:8:1: variable "SSL_VERIFY_NONE" copy added as argument
+tmp/tmpcode:8:1: variable "SSL_VERIFY_NONE" validation reset
+tmp/tmpcode:8:1: variable "NULL" added to state
+tmp/tmpcode:8:1: variable "NULL" copy added as argument
+tmp/tmpcode:8:1: variable "NULL" validation reset
+tmp/tmpcode:8:1: call "SSL_CTX_set_verify" added to state
+tmp/tmpcode:9:1: function "SSL_CTX_set_verify" called
+tmp/tmpcode:9:1: variable "ctx" copy added as argument
+tmp/tmpcode:9:1: variable "ctx" validation reset
+tmp/tmpcode:9:1: variable "CURLOPT_SSL_VERIFYPEER" added to state
+tmp/tmpcode:9:1: variable "CURLOPT_SSL_VERIFYPEER" copy added as argument
+tmp/tmpcode:9:1: variable "CURLOPT_SSL_VERIFYPEER" validation reset
+tmp/tmpcode:9:1: variable "verify_callback" added to state
+tmp/tmpcode:9:1: variable "verify_callback" copy added as argument
+tmp/tmpcode:9:1: variable "verify_callback" validation reset
+tmp/tmpcode:9:1: call "SSL_CTX_set_verify" added to state
+tmp/tmpcode:10:1: function "SSL_CTX_set_verify" called
+tmp/tmpcode:10:1: variable "ctx" copy added as argument
+tmp/tmpcode:10:1: variable "ctx" validation reset
+tmp/tmpcode:10:1: variable "SSL_VERIFY_PEER" added to state
+tmp/tmpcode:10:1: variable "SSL_VERIFY_PEER" copy added as argument
+tmp/tmpcode:10:1: variable "SSL_VERIFY_PEER" validation reset
+tmp/tmpcode:10:1: variable "NULL" copy added as argument
+tmp/tmpcode:10:1: variable "NULL" validation reset
+tmp/tmpcode:10:1: call "SSL_CTX_set_verify" added to state
+
+
+log: 2021-07-12 13:41:03.931930
+filename: code/diffssl
+
+tmp/tmpcode:1:14: function "RSA_public_decrypt" called
+tmp/tmpcode:1:14: variable "flen" added to state
+tmp/tmpcode:1:14: variable "flen" copy added as argument
+tmp/tmpcode:1:14: variable "flen" validation reset
+tmp/tmpcode:1:14: variable "from" added to state
+tmp/tmpcode:1:14: variable "from" copy added as argument
+tmp/tmpcode:1:14: variable "from" validation reset
+tmp/tmpcode:1:14: variable "to" added to state
+tmp/tmpcode:1:14: variable "to" copy added as argument
+tmp/tmpcode:1:14: variable "to" validation reset
+tmp/tmpcode:1:14: variable "key" added to state
+tmp/tmpcode:1:14: variable "key" copy added as argument
+tmp/tmpcode:1:14: variable "key" validation reset
+tmp/tmpcode:1:14: variable "RSA_PKCS1_PADDING" added to state
+tmp/tmpcode:1:14: variable "RSA_PKCS1_PADDING" copy added as argument
+tmp/tmpcode:1:14: variable "RSA_PKCS1_PADDING" validation reset
+tmp/tmpcode:1:14: call "RSA_public_decrypt" added to state
+tmp/tmpcode:2:1: function "RSA_public_decrypt" called
+tmp/tmpcode:2:1: variable "flen" copy added as argument
+tmp/tmpcode:2:1: variable "flen" validation reset
+tmp/tmpcode:2:1: variable "from" copy added as argument
+tmp/tmpcode:2:1: variable "from" validation reset
+tmp/tmpcode:2:1: variable "to" copy added as argument
+tmp/tmpcode:2:1: variable "to" validation reset
+tmp/tmpcode:2:1: variable "key" copy added as argument
+tmp/tmpcode:2:1: variable "key" validation reset
+tmp/tmpcode:2:1: variable "RSA_SSLV23_PADDING" added to state
+tmp/tmpcode:2:1: variable "RSA_SSLV23_PADDING" copy added as argument
+tmp/tmpcode:2:1: variable "RSA_SSLV23_PADDING" validation reset
+tmp/tmpcode:2:1: call "RSA_public_decrypt" added to state
+tmp/tmpcode:3:1: function "RSA_public_decrypt" called
+tmp/tmpcode:3:1: variable "flen" copy added as argument
+tmp/tmpcode:3:1: variable "flen" validation reset
+tmp/tmpcode:3:1: variable "from" copy added as argument
+tmp/tmpcode:3:1: variable "from" validation reset
+tmp/tmpcode:3:1: variable "to" copy added as argument
+tmp/tmpcode:3:1: variable "to" validation reset
+tmp/tmpcode:3:1: variable "key" copy added as argument
+tmp/tmpcode:3:1: variable "key" validation reset
+tmp/tmpcode:3:1: variable "RSA_NO_PADDING" added to state
+tmp/tmpcode:3:1: variable "RSA_NO_PADDING" copy added as argument
+tmp/tmpcode:3:1: variable "RSA_NO_PADDING" validation reset
+tmp/tmpcode:3:1: call "RSA_public_decrypt" added to state
+tmp/tmpcode:4:1: function "SSL_connect" called
+tmp/tmpcode:4:1: variable "ssl1" added to state
+tmp/tmpcode:4:1: variable "ssl1" copy added as argument
+tmp/tmpcode:4:1: variable "ssl1" validation reset
+tmp/tmpcode:4:1: call "SSL_connect" added to state
+tmp/tmpcode:5:1: function "SSL_set1_host" called
+tmp/tmpcode:5:1: variable "ssl" added to state
+tmp/tmpcode:5:1: variable "ssl" copy added as argument
+tmp/tmpcode:5:1: variable "ssl" validation reset
+tmp/tmpcode:5:1: variable "HOST_NAME" added to state
+tmp/tmpcode:5:1: variable "HOST_NAME" copy added as argument
+tmp/tmpcode:5:1: variable "HOST_NAME" validation reset
+tmp/tmpcode:5:1: call "SSL_set1_host" added to state
+tmp/tmpcode:6:1: function "SSL_connect" called
+tmp/tmpcode:6:1: variable "ssl" copy added as argument
+tmp/tmpcode:6:1: variable "ssl" validation reset
+tmp/tmpcode:6:1: call "SSL_connect" added to state
+tmp/tmpcode:8:1: function "SSL_CTX_set_verify" called
+tmp/tmpcode:8:1: variable "ctx" added to state
+tmp/tmpcode:8:1: variable "ctx" copy added as argument
+tmp/tmpcode:8:1: variable "ctx" validation reset
+tmp/tmpcode:8:1: variable "SSL_VERIFY_NONE" added to state
+tmp/tmpcode:8:1: variable "SSL_VERIFY_NONE" copy added as argument
+tmp/tmpcode:8:1: variable "SSL_VERIFY_NONE" validation reset
+tmp/tmpcode:8:1: variable "NULL" added to state
+tmp/tmpcode:8:1: variable "NULL" copy added as argument
+tmp/tmpcode:8:1: variable "NULL" validation reset
+tmp/tmpcode:8:1: call "SSL_CTX_set_verify" added to state
+tmp/tmpcode:9:1: function "SSL_CTX_set_verify" called
+tmp/tmpcode:9:1: variable "ctx" copy added as argument
+tmp/tmpcode:9:1: variable "ctx" validation reset
+tmp/tmpcode:9:1: variable "CURLOPT_SSL_VERIFYPEER" added to state
+tmp/tmpcode:9:1: variable "CURLOPT_SSL_VERIFYPEER" copy added as argument
+tmp/tmpcode:9:1: variable "CURLOPT_SSL_VERIFYPEER" validation reset
+tmp/tmpcode:9:1: variable "verify_callback" added to state
+tmp/tmpcode:9:1: variable "verify_callback" copy added as argument
+tmp/tmpcode:9:1: variable "verify_callback" validation reset
+tmp/tmpcode:9:1: call "SSL_CTX_set_verify" added to state
+tmp/tmpcode:10:1: function "SSL_CTX_set_verify" called
+tmp/tmpcode:10:1: variable "ctx" copy added as argument
+tmp/tmpcode:10:1: variable "ctx" validation reset
+tmp/tmpcode:10:1: variable "SSL_VERIFY_PEER" added to state
+tmp/tmpcode:10:1: variable "SSL_VERIFY_PEER" copy added as argument
+tmp/tmpcode:10:1: variable "SSL_VERIFY_PEER" validation reset
+tmp/tmpcode:10:1: variable "NULL" copy added as argument
+tmp/tmpcode:10:1: variable "NULL" validation reset
+tmp/tmpcode:10:1: call "SSL_CTX_set_verify" added to state
+
+
+log: 2021-07-12 13:41:43.710081
+filename: code/diffssl
+
+tmp/tmpcode:1:14: function "RSA_public_decrypt" called
+tmp/tmpcode:1:14: variable "flen" added to state
+tmp/tmpcode:1:14: variable "flen" copy added as argument
+tmp/tmpcode:1:14: variable "flen" validation reset
+tmp/tmpcode:1:14: variable "from" added to state
+tmp/tmpcode:1:14: variable "from" copy added as argument
+tmp/tmpcode:1:14: variable "from" validation reset
+tmp/tmpcode:1:14: variable "to" added to state
+tmp/tmpcode:1:14: variable "to" copy added as argument
+tmp/tmpcode:1:14: variable "to" validation reset
+tmp/tmpcode:1:14: variable "key" added to state
+tmp/tmpcode:1:14: variable "key" copy added as argument
+tmp/tmpcode:1:14: variable "key" validation reset
+tmp/tmpcode:1:14: variable "RSA_PKCS1_PADDING" added to state
+tmp/tmpcode:1:14: variable "RSA_PKCS1_PADDING" copy added as argument
+tmp/tmpcode:1:14: variable "RSA_PKCS1_PADDING" validation reset
+tmp/tmpcode:1:14: call "RSA_public_decrypt" added to state
+tmp/tmpcode:2:1: function "RSA_public_decrypt" called
+tmp/tmpcode:2:1: variable "flen" copy added as argument
+tmp/tmpcode:2:1: variable "flen" validation reset
+tmp/tmpcode:2:1: variable "from" copy added as argument
+tmp/tmpcode:2:1: variable "from" validation reset
+tmp/tmpcode:2:1: variable "to" copy added as argument
+tmp/tmpcode:2:1: variable "to" validation reset
+tmp/tmpcode:2:1: variable "key" copy added as argument
+tmp/tmpcode:2:1: variable "key" validation reset
+tmp/tmpcode:2:1: variable "RSA_SSLV23_PADDING" added to state
+tmp/tmpcode:2:1: variable "RSA_SSLV23_PADDING" copy added as argument
+tmp/tmpcode:2:1: variable "RSA_SSLV23_PADDING" validation reset
+tmp/tmpcode:2:1: call "RSA_public_decrypt" added to state
+tmp/tmpcode:3:1: function "RSA_public_decrypt" called
+tmp/tmpcode:3:1: variable "flen" copy added as argument
+tmp/tmpcode:3:1: variable "flen" validation reset
+tmp/tmpcode:3:1: variable "from" copy added as argument
+tmp/tmpcode:3:1: variable "from" validation reset
+tmp/tmpcode:3:1: variable "to" copy added as argument
+tmp/tmpcode:3:1: variable "to" validation reset
+tmp/tmpcode:3:1: variable "key" copy added as argument
+tmp/tmpcode:3:1: variable "key" validation reset
+tmp/tmpcode:3:1: variable "RSA_NO_PADDING" added to state
+tmp/tmpcode:3:1: variable "RSA_NO_PADDING" copy added as argument
+tmp/tmpcode:3:1: variable "RSA_NO_PADDING" validation reset
+tmp/tmpcode:3:1: call "RSA_public_decrypt" added to state
+tmp/tmpcode:4:1: function "SSL_connect" called
+tmp/tmpcode:4:1: variable "ssl1" added to state
+tmp/tmpcode:4:1: variable "ssl1" copy added as argument
+tmp/tmpcode:4:1: variable "ssl1" validation reset
+tmp/tmpcode:4:1: call "SSL_connect" added to state
+tmp/tmpcode:5:1: function "SSL_set1_host" called
+tmp/tmpcode:5:1: variable "ssl" added to state
+tmp/tmpcode:5:1: variable "ssl" copy added as argument
+tmp/tmpcode:5:1: variable "ssl" validation reset
+tmp/tmpcode:5:1: variable "HOST_NAME" added to state
+tmp/tmpcode:5:1: variable "HOST_NAME" copy added as argument
+tmp/tmpcode:5:1: variable "HOST_NAME" validation reset
+tmp/tmpcode:5:1: call "SSL_set1_host" added to state
+tmp/tmpcode:6:1: function "SSL_connect" called
+tmp/tmpcode:6:1: variable "ssl" copy added as argument
+tmp/tmpcode:6:1: variable "ssl" validation reset
+tmp/tmpcode:6:1: call "SSL_connect" added to state
+tmp/tmpcode:8:1: function "SSL_CTX_set_verify" called
+tmp/tmpcode:8:1: variable "ctx" added to state
+tmp/tmpcode:8:1: variable "ctx" copy added as argument
+tmp/tmpcode:8:1: variable "ctx" validation reset
+tmp/tmpcode:8:1: variable "SSL_VERIFY_NONE" added to state
+tmp/tmpcode:8:1: variable "SSL_VERIFY_NONE" copy added as argument
+tmp/tmpcode:8:1: variable "SSL_VERIFY_NONE" validation reset
+tmp/tmpcode:8:1: variable "NULL" added to state
+tmp/tmpcode:8:1: variable "NULL" copy added as argument
+tmp/tmpcode:8:1: variable "NULL" validation reset
+tmp/tmpcode:8:1: call "SSL_CTX_set_verify" added to state
+tmp/tmpcode:9:1: function "SSL_CTX_set_verify" called
+tmp/tmpcode:9:1: variable "ctx" copy added as argument
+tmp/tmpcode:9:1: variable "ctx" validation reset
+tmp/tmpcode:9:1: variable "CURLOPT_SSL_VERIFYPEER" added to state
+tmp/tmpcode:9:1: variable "CURLOPT_SSL_VERIFYPEER" copy added as argument
+tmp/tmpcode:9:1: variable "CURLOPT_SSL_VERIFYPEER" validation reset
+tmp/tmpcode:9:1: variable "verify_callback" added to state
+tmp/tmpcode:9:1: variable "verify_callback" copy added as argument
+tmp/tmpcode:9:1: variable "verify_callback" validation reset
+tmp/tmpcode:9:1: call "SSL_CTX_set_verify" added to state
+tmp/tmpcode:10:1: function "SSL_CTX_set_verify" called
+tmp/tmpcode:10:1: variable "ctx" copy added as argument
+tmp/tmpcode:10:1: variable "ctx" validation reset
+tmp/tmpcode:10:1: variable "SSL_VERIFY_PEER" added to state
+tmp/tmpcode:10:1: variable "SSL_VERIFY_PEER" copy added as argument
+tmp/tmpcode:10:1: variable "SSL_VERIFY_PEER" validation reset
+tmp/tmpcode:10:1: variable "NULL" copy added as argument
+tmp/tmpcode:10:1: variable "NULL" validation reset
+tmp/tmpcode:10:1: call "SSL_CTX_set_verify" added to state
+
+
+log: 2021-07-12 13:42:31.289392
+filename: code/diff
+
+code/diff:3:9: variable "sockfd" added to state
+code/diff:4:24: variable "localaddr" added to state
+code/diff:5:5: "sin_family" added as field of "localaddr"
+code/diff:5:5: variable "sin_family" value set to None
+code/diff:5:5: variable "sin_family" validation reset
+code/diff:5:5: variable "sin_family" dependency reset
+code/diff:5:5: variable "AF_INET" added to state
+code/diff:5:5: variable "AF_INET" is added as dependency of "sin_family"
+code/diff:6:5: "sin_port" added as field of "localaddr"
+code/diff:6:5: variable "sin_port" value set to 0
+code/diff:6:5: variable "sin_port" validation reset
+code/diff:8:5: "sin_addr" added as field of "localaddr"
+code/diff:8:5: "s_addr" added as field of "sin_addr"
+code/diff:8:5: variable "s_addr" value set to None
+code/diff:8:5: variable "s_addr" validation reset
+code/diff:8:33: function "inet_addr" called
+code/diff:8:33: constant "192.168.1.1" added as argument
+code/diff:8:33: call "inet_addr" added to state
+code/diff:8:33: variable "s_addr" dependency reset
+code/diff:8:33: call "inet_addr" added as dependency of "s_addr"
+code/diff:10:8: function "bind" called
+code/diff:10:8: variable "sockfd" copy added as argument
+code/diff:10:8: variable "sockfd" validation reset
+code/diff:10:8: variable "localaddr" copy added as argument
+code/diff:10:8: variable "localaddr" validation reset
+code/diff:10:8: variable "localaddr" copy added as argument
+code/diff:10:8: variable "localaddr" validation reset
+code/diff:10:8: call "bind" added to state
+code/diff:11:9: function "exit" called
+code/diff:11:9: constant 0 added as argument
+code/diff:11:9: call "exit" added to state
+code/diff:14:5: variable "s_addr" value set to None
+code/diff:14:5: variable "s_addr" validation reset
+code/diff:14:5: variable "s_addr" dependency reset
+code/diff:14:5: variable "INADDR_ANY" added to state
+code/diff:14:5: variable "INADDR_ANY" is added as dependency of "s_addr"
+code/diff:16:8: function "bind" called
+code/diff:16:8: variable "sockfd" copy added as argument
+code/diff:16:8: variable "sockfd" validation reset
+code/diff:16:8: variable "localaddr" copy added as argument
+code/diff:16:8: variable "localaddr" validation reset
+code/diff:16:8: variable "localaddr" copy added as argument
+code/diff:16:8: variable "localaddr" validation reset
+code/diff:16:8: call "bind" added to state
+code/diff:17:9: function "exit" called
+code/diff:17:9: constant 0 added as argument
+code/diff:17:9: call "exit" added to state
+code/diff:20:5: function "gets" called
+code/diff:20:5: variable "userInput" added to state
+code/diff:20:5: variable "userInput" set as input
+code/diff:20:5: variable "userInput" copy added as argument
+code/diff:20:5: variable "userInput" validation reset
+code/diff:20:5: call "gets" added to state
+code/diff:21:5: function "strcpy" called
+code/diff:21:5: variable "fileName" added to state
+code/diff:21:5: variable "fileName" copy added as argument
+code/diff:21:5: variable "fileName" validation reset
+code/diff:21:5: variable "userInput" copy added as argument
+code/diff:21:5: variable "userInput" validation reset
+code/diff:21:5: variable "fileName" dependency reset
+code/diff:21:5: variable "userInput" added as dependency of "fileName"
+code/diff:21:5: call "strcpy" added to state
+code/diff:22:5: function "fscanf" called
+code/diff:22:5: variable "fileName" copy added as argument
+code/diff:22:5: variable "fileName" validation reset
+code/diff:22:5: constant "%s %s" added as argument
+code/diff:22:5: variable "s1" added to state
+code/diff:22:5: variable "s1" copy added as argument
+code/diff:22:5: variable "s1" validation reset
+code/diff:22:5: variable "s2" added to state
+code/diff:22:5: variable "s2" copy added as argument
+code/diff:22:5: variable "s2" validation reset
+code/diff:22:5: call "fscanf" added to state
+code/diff:24:8: function "strlen" called
+code/diff:24:8: variable "fileName" copy added as argument
+code/diff:24:8: variable "fileName" validation reset
+code/diff:24:8: call "strlen" added to state
+code/diff:25:9: function "chmod" called
+code/diff:25:9: variable "fileName" copy added as argument
+code/diff:25:9: variable "fileName" validation reset
+code/diff:25:9: variable "S_IXOTH" added to state
+code/diff:25:9: variable "S_IXOTH" copy added as argument
+code/diff:25:9: variable "S_IXOTH" validation reset
+code/diff:25:9: call "chmod" added to state
+code/diff:26:9: function "chmod" called
+code/diff:26:9: constant "result.txt" added as argument
+code/diff:26:9: variable "S_IXOTH" copy added as argument
+code/diff:26:9: variable "S_IXOTH" validation reset
+code/diff:26:9: call "chmod" added to state
+code/diff:29:5: function "gets" called
+code/diff:29:5: variable "userCommand" added to state
+code/diff:29:5: variable "userCommand" set as input
+code/diff:29:5: variable "userCommand" copy added as argument
+code/diff:29:5: variable "userCommand" validation reset
+code/diff:29:5: call "gets" added to state
+code/diff:30:5: function "strcpy" called
+code/diff:30:5: variable "command" added to state
+code/diff:30:5: variable "command" copy added as argument
+code/diff:30:5: variable "command" validation reset
+code/diff:30:5: variable "userCommand" copy added as argument
+code/diff:30:5: variable "userCommand" validation reset
+code/diff:30:5: variable "command" dependency reset
+code/diff:30:5: variable "userCommand" added as dependency of "command"
+code/diff:30:5: call "strcpy" added to state
+code/diff:32:8: function "strlen" called
+code/diff:32:8: variable "command" copy added as argument
+code/diff:32:8: variable "command" validation reset
+code/diff:32:8: call "strlen" added to state
+code/diff:33:9: function "system" called
+code/diff:33:9: variable "command" copy added as argument
+code/diff:33:9: variable "command" validation reset
+code/diff:33:9: call "system" added to state
+code/diff:36:5: function "validateInput" called
+code/diff:36:5: variable "command" validation set
+code/diff:36:5: variable "command" copy added as argument
+code/diff:36:5: call "validateInput" added to state
+code/diff:38:9: function "system" called
+code/diff:38:9: variable "command" copy added as argument
+code/diff:38:9: variable "command" validation reset
+code/diff:38:9: call "system" added to state
+code/diff:41:5: function "RSA_public_decrypt" called
+code/diff:41:5: variable "flen" added to state
+code/diff:41:5: variable "flen" copy added as argument
+code/diff:41:5: variable "flen" validation reset
+code/diff:41:5: variable "from" added to state
+code/diff:41:5: variable "from" copy added as argument
+code/diff:41:5: variable "from" validation reset
+code/diff:41:5: variable "to" added to state
+code/diff:41:5: variable "to" copy added as argument
+code/diff:41:5: variable "to" validation reset
+code/diff:41:5: variable "key" added to state
+code/diff:41:5: variable "key" copy added as argument
+code/diff:41:5: variable "key" validation reset
+code/diff:41:5: variable "RSA_PKCS1_PADDING" added to state
+code/diff:41:5: variable "RSA_PKCS1_PADDING" copy added as argument
+code/diff:41:5: variable "RSA_PKCS1_PADDING" validation reset
+code/diff:41:5: call "RSA_public_decrypt" added to state
+code/diff:42:5: function "RSA_public_decrypt" called
+code/diff:42:5: variable "flen" copy added as argument
+code/diff:42:5: variable "flen" validation reset
+code/diff:42:5: variable "from" copy added as argument
+code/diff:42:5: variable "from" validation reset
+code/diff:42:5: variable "to" copy added as argument
+code/diff:42:5: variable "to" validation reset
+code/diff:42:5: variable "key" copy added as argument
+code/diff:42:5: variable "key" validation reset
+code/diff:42:5: variable "RSA_SSLV23_PADDING" added to state
+code/diff:42:5: variable "RSA_SSLV23_PADDING" copy added as argument
+code/diff:42:5: variable "RSA_SSLV23_PADDING" validation reset
+code/diff:42:5: call "RSA_public_decrypt" added to state
+code/diff:43:5: function "RSA_public_decrypt" called
+code/diff:43:5: variable "flen" copy added as argument
+code/diff:43:5: variable "flen" validation reset
+code/diff:43:5: variable "from" copy added as argument
+code/diff:43:5: variable "from" validation reset
+code/diff:43:5: variable "to" copy added as argument
+code/diff:43:5: variable "to" validation reset
+code/diff:43:5: variable "key" copy added as argument
+code/diff:43:5: variable "key" validation reset
+code/diff:43:5: variable "RSA_NO_PADDING" added to state
+code/diff:43:5: variable "RSA_NO_PADDING" copy added as argument
+code/diff:43:5: variable "RSA_NO_PADDING" validation reset
+code/diff:43:5: call "RSA_public_decrypt" added to state
+code/diff:44:5: function "SSL_connect" called
+code/diff:44:5: variable "ssl1" added to state
+code/diff:44:5: variable "ssl1" copy added as argument
+code/diff:44:5: variable "ssl1" validation reset
+code/diff:44:5: call "SSL_connect" added to state
+code/diff:45:5: function "SSL_set1_host" called
+code/diff:45:5: variable "ssl" added to state
+code/diff:45:5: variable "ssl" copy added as argument
+code/diff:45:5: variable "ssl" validation reset
+code/diff:45:5: variable "HOST_NAME" added to state
+code/diff:45:5: variable "HOST_NAME" copy added as argument
+code/diff:45:5: variable "HOST_NAME" validation reset
+code/diff:45:5: call "SSL_set1_host" added to state
+code/diff:46:5: function "SSL_connect" called
+code/diff:46:5: variable "ssl" copy added as argument
+code/diff:46:5: variable "ssl" validation reset
+code/diff:46:5: call "SSL_connect" added to state
+code/diff:48:5: function "SSL_CTX_set_verify" called
+code/diff:48:5: variable "ctx" added to state
+code/diff:48:5: variable "ctx" copy added as argument
+code/diff:48:5: variable "ctx" validation reset
+code/diff:48:5: variable "SSL_VERIFY_NONE" added to state
+code/diff:48:5: variable "SSL_VERIFY_NONE" copy added as argument
+code/diff:48:5: variable "SSL_VERIFY_NONE" validation reset
+code/diff:48:5: variable "NULL" added to state
+code/diff:48:5: variable "NULL" copy added as argument
+code/diff:48:5: variable "NULL" validation reset
+code/diff:48:5: call "SSL_CTX_set_verify" added to state
+code/diff:49:5: function "SSL_CTX_set_verify" called
+code/diff:49:5: variable "ctx" copy added as argument
+code/diff:49:5: variable "ctx" validation reset
+code/diff:49:5: variable "CURLOPT_SSL_VERIFYPEER" added to state
+code/diff:49:5: variable "CURLOPT_SSL_VERIFYPEER" copy added as argument
+code/diff:49:5: variable "CURLOPT_SSL_VERIFYPEER" validation reset
+code/diff:49:5: variable "verify_callback" added to state
+code/diff:49:5: variable "verify_callback" copy added as argument
+code/diff:49:5: variable "verify_callback" validation reset
+code/diff:49:5: call "SSL_CTX_set_verify" added to state
+code/diff:50:5: function "SSL_CTX_set_verify" called
+code/diff:50:5: variable "ctx" copy added as argument
+code/diff:50:5: variable "ctx" validation reset
+code/diff:50:5: variable "SSL_VERIFY_PEER" added to state
+code/diff:50:5: variable "SSL_VERIFY_PEER" copy added as argument
+code/diff:50:5: variable "SSL_VERIFY_PEER" validation reset
+code/diff:50:5: variable "NULL" copy added as argument
+code/diff:50:5: variable "NULL" validation reset
+code/diff:50:5: call "SSL_CTX_set_verify" added to state

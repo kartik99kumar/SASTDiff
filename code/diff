@@ -45,4 +45,8 @@ void test(){
     SSL_set1_host(ssl, HOST_NAME);
     SSL_connect(ssl);
 
+    SSL_CTX_set_verify(ctx, SSL_VERIFY_NONE, NULL); 
+    SSL_CTX_set_verify(ctx, CURLOPT_SSL_VERIFYPEER, verify_callback);
+    SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER, NULL);
+
 }

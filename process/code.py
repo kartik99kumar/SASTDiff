@@ -8,6 +8,7 @@ from process.funcdef import evaluateFuncDef
 from process.decl import evaluateDecl
 from tools.securepadding import evaluatePadding
 from tools.serverhostverify import evaluateHostVerify
+from tools.certverify import evaluateCertificates
 from structs.state import State
 from utils.data import logFile
 from utils.data import stateFile
@@ -26,6 +27,7 @@ def evaluateState(state):
     ws.extend(evaluateBadFilePermission(state))
     ws.extend(evaluatePadding(state))
     ws.extend(evaluateHostVerify(state))
+    ws.extend(evaluateCertificates(state))
 
     for cstate in state.children:
         ws.extend(evaluateState(cstate))
