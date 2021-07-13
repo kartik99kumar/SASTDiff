@@ -1,1 +1,0 @@
-chmod("result/result.txt",S_IXOTH|S_IXGRP|S_IWOTH);

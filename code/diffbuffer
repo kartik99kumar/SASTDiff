@@ -1,6 +1,0 @@
-void show(){
-
-    scanf("%s%s",a,b);
-    gets(userInput);
-    fscanf(fp,"%s",a,b);
-}

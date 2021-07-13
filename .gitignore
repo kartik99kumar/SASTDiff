@@ -1,0 +1,14 @@
+#ignore logs
+logs/
+
+#ignore example code
+code/
+
+#ignore temp files
+result/
+tmp/
+astdump.txt
+
+#ignore pycache
+__pycache__/
+

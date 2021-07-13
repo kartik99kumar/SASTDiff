@@ -15,4 +15,7 @@ def makeAST(filename, mode):
         filename = "tmp/tmpcode"
 
     ast = parse_file(filename)
+    file = open("astdump.txt", "w")
+    ast.show(buf=file)
+
     return ast
