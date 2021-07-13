@@ -296,6 +296,16 @@ The *config.json* file can be configured by the user to specify:
 
         - evaluateShell(state): this function checks for shell injection vulnerability. It analyzes *system* and *popen* calls to check if the input to these functions is a user input or has any user input dependency.
 
+## Logs and Debugging
+
+1. Maintaining Log
+
+    A log is maintained which helps to track if variables are added to state, value of variables are set, validation is set or reset, if variable is set as input etc. Two function are used in State to maintain log: *addToLog()* and *setLogCoord()*. The first function is used to make an entry in the log. The second function is used to set the coordinate of code where the action which is recorded in the log has happened. This log is very useful in debugging and to check the flow of code. It is recorded in *logs/log.txt*.
+
+2. State Tree
+
+    The state tree dump is written in the *logs/state.txt* file. The states in this tree are the states which exist after the analysis of the whole AST.
+
 ## Project Scope and Further Development
 
 1. Evaluating AST Components
